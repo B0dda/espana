@@ -719,7 +719,6 @@ to {
 
 .product-images {
   flex: 1;
-  border: 1px solid red;
   padding: 10px;
 }
 
@@ -729,7 +728,6 @@ to {
 
 .product-description {
   flex: 1;
-  border: 1px solid blue;
   padding: 10px;
 }
 
@@ -817,6 +815,36 @@ hr {
 .sec-img img {
     width: 100px;
     height: 100px;
-    border: 1px solid black;
     margin: 5px;
+    object-fit:cover;
+    transition: .3s all;
+    cursor: pointer;
+}
+
+.sec-img img:hover {
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.28), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.extra-desc {
+    margin-right: 30px;
+}
+
+.extra-desc button {
+    width: 150px;
+    height: 50px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 18px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+}
+
+#btnn1 {
+    border-bottom: 1.5px solid #6381a8;
+    color: #6381a8;
+}
+
+#descPrice {
+    visibility: hidden;
 }
