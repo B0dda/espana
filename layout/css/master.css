@@ -1,0 +1,223 @@
+/* color code : #6381a8 */
+/* font-family: 'Tajawal', sans-serif; */
+/* font-family: 'Lemonada', cursive; */
+
+body ,html{
+    margin: 0;
+    direction: rtl;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6381a8;
+    border-radius: 10px;
+}
+
+#signin .container {
+    width: 100%;
+    background-image: url(../jpeg/pexels-aleksandar-pasaric-1415734.jpg);
+    height: 100%;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#signin .container img {
+    width: 100%;
+    height: 100%;
+}
+
+.signup-form-container {
+    width: 60%;
+    height: 500px;
+    background-color: white;
+    margin: 0 auto;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    padding: 20px;
+    text-align: center;
+}
+
+#signin .heading {
+    font-family: 'Lemonada', cursive;
+}
+
+#signin form {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+
+.group-input { 
+    position:relative; 
+    margin-bottom:45px; 
+}
+
+input {
+    font-size:18px;
+    padding:10px 10px 10px 5px;
+    display:block;
+    width: 90%;
+    border:none;
+    border-bottom:1px solid #757575;
+}
+
+input:focus { 
+    outline:none; 
+}
+
+label {
+    color:#999; 
+    font-size:18px;
+    font-weight:bold;
+    position:absolute;
+    pointer-events:none;
+    right:5px;
+    top:10px;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+    font-family: 'Tajawal', sans-serif;
+}
+  
+input:focus ~ label, input:valid ~ label {
+    top:-20px;
+    font-size:14px;
+    color:#6381a8;
+}
+
+.bar { 
+    position:relative; 
+    display:block; 
+    width:90%;
+}
+
+.bar:before, .bar:after {
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#6381a8; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width:50%;
+}
+
+.highlight {
+    position:absolute;
+    height:60%; 
+    width:100px;
+    top:25%; 
+    right:0;
+    pointer-events:none;
+    opacity:0.5;
+}
+  
+input:focus ~ .highlight {
+    -webkit-animation:inputHighlighter 0.3s ease;
+    -moz-animation:inputHighlighter 0.3s ease;
+    animation:inputHighlighter 0.3s ease;
+}
+  
+@-webkit-keyframes inputHighlighter {
+      from { background:#6381a8; }
+    to    { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+      from { background:#6381a8; }
+    to    { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+      from { background:#6381a8; }
+    to    { width:0; background:transparent; }
+}
+
+.two-in-one {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.group-buttons {
+    width: 100%;
+    text-align: center;
+}
+
+.xbutton {
+    width: 150px;
+    margin: 0 auto;
+    border: none;
+    background-color: #6381a8;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 600;
+    border: 2px solid #6381a8;
+    transition: .2s all;
+}
+
+.xbutton:hover {
+    background-color: white;
+    color: #6381a8;
+    cursor: pointer;
+}
+
+.xbuttonx {
+    width: 200px;
+    margin: 0 auto;
+    border: none;
+    background-color: white;
+    color: #6381a8;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 600;
+    border: 2px solid #6381a8;
+    transition: .2s all;
+}
+
+.xbuttonx:hover {
+    background-color: #6381a8;
+    color: white;
+    cursor: pointer;
+}
