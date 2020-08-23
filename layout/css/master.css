@@ -7,6 +7,7 @@ body ,html{
     direction: rtl;
     box-sizing: border-box;
     height: 100%;
+    font-family: 'Tajawal', sans-serif;
 }
 
 a {
@@ -76,16 +77,16 @@ a {
     margin-bottom:45px; 
 }
 
-input {
+.bda-input {
     font-size:18px;
-    padding:10px 10px 10px 5px;
+    padding:10px 0px 10px 0px;
     display:block;
-    width: 90%;
+    width: 97%;
     border:none;
     border-bottom:1px solid #757575;
 }
 
-input:focus { 
+.bda-input:focus { 
     outline:none; 
 }
 
@@ -103,7 +104,7 @@ label {
     font-family: 'Tajawal', sans-serif;
 }
   
-input:focus ~ label, input:valid ~ label {
+.bda-input:focus ~ label, .bda-input:valid ~ label {
     top:-20px;
     font-size:14px;
     color:#6381a8;
@@ -112,7 +113,7 @@ input:focus ~ label, input:valid ~ label {
 .bar { 
     position:relative; 
     display:block; 
-    width:90%;
+    width:97%;
 }
 
 .bar:before, .bar:after {
@@ -134,7 +135,7 @@ input:focus ~ label, input:valid ~ label {
   right:50%; 
 }
 
-input:focus ~ .bar:before, input:focus ~ .bar:after {
+.bda-input:focus ~ .bar:before, .bda-input:focus ~ .bar:after {
     width:50%;
 }
 
@@ -148,7 +149,7 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
     opacity:0.5;
 }
   
-input:focus ~ .highlight {
+.bda-input:focus ~ .highlight {
     -webkit-animation:inputHighlighter 0.3s ease;
     -moz-animation:inputHighlighter 0.3s ease;
     animation:inputHighlighter 0.3s ease;
@@ -184,6 +185,8 @@ input:focus ~ .highlight {
 
 .xbutton {
     width: 150px;
+    height: 50px;
+    font-size: 18px;
     margin: 0 auto;
     border: none;
     background-color: #6381a8;
@@ -204,6 +207,8 @@ input:focus ~ .highlight {
 
 .xbuttonx {
     width: 200px;
+    height: 50px;
+    font-size: 18px;
     margin: 0 auto;
     border: none;
     background-color: white;
@@ -220,4 +225,61 @@ input:focus ~ .highlight {
     background-color: #6381a8;
     color: white;
     cursor: pointer;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+#signinn .container {
+    width: 100%;
+    background-image: url(../jpeg/diogo-nunes-2BAqw7DwMdg-unsplash.jpg);
+    height: 100%;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#signinn .heading {
+    font-family: 'Lemonada', cursive;
+}
+
+.signin-form-container {
+    width: 30%;
+    height: 450px;
+    background-color: white;
+    margin: 0 auto;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    padding: 20px;
+    text-align: center;
+}
+
+#signinn form {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+#product {
+    background-color: #f8f8f8;
+}
+
+#product .container {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: white;
 }
