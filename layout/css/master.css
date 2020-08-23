@@ -78,6 +78,147 @@ body, html {
   color: var(--main-color);
 }
 
+.wrapper {
+  margin-top: 20px;
+  padding: 0 var(--center-padding);
+}
+
+.product-cards {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.product-cards .card {
+  margin-top: 30px;
+  min-height: 470px;
+  width: 310px;
+  padding: 10px;
+  border: 1px solid #999;
+}
+
+.product-cards .card.extra {
+  border: 0;
+  padding: 0;
+  height: 0;
+  min-height: 0;
+  margin: 0;
+}
+
+.product-cards .card .product-image {
+  width: 100%;
+  height: 250px;
+  background: #000;
+}
+
+.product-cards .card .product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-cards .card .title {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 4px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.sep {
+  width: 100%;
+  margin: 0 auto;
+  border-top: 1px solid #999;
+}
+
+.product-cards .card .price {
+  margin-top: 20px;
+  font-size: 26px;
+  text-align: center;
+}
+
+.button {
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  background: var(--shade-color);
+  margin-top: 5px;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.button.add {
+  background: #59B969;
+}
+
+.shopping-cart-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.shopping-cart-container table {
+  table-layout: fixed;
+  width: 100%;
+  border-spacing: 0;
+}
+
+.shopping-cart-container table.t tr td:last-of-type {}
+
+.shopping-cart-container table.t tr:nth-of-type(2n) {
+  background: #eee;
+}
+
+.shopping-cart-container table.t .product-image {
+  width: 140px;
+  height: 140px;
+  background: #000;
+  margin: 20px;
+}
+
+.shopping-cart-container table .price {
+  font-weight: bold;
+}
+
+.shopping-cart-container table .remove {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.shopping-cart-container table .remove::before {
+  content: "\f057";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 500;
+  font-size: 24px;
+  color: #999;
+}
+
+.shopping-cart-container table .remove:hover::before {
+  color: red;
+}
+
+.warn {
+  width: 100%;
+  background: #ffd5d9;
+  padding: 30px;
+  font-size: 19px;
+}
+
+.warn::before {
+  content: "\f071";
+  font-family: "Font Awesome 5 Free";
+  font-weight: bold;
+  color: #A30013;
+}
+
 #header .nav .top, #header .nav .bottom {
   flex: 1;
 }
@@ -120,6 +261,7 @@ body, html {
 }
 
 #header .nav .center .search .cat-button menu {
+  z-index: 999;
   width: 100%;
   position: absolute;
   top: 100%;
@@ -183,6 +325,55 @@ body, html {
   padding: 0 10px;
 }
 
+.top-slider {
+  width: 100%;
+  height: 500px;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.top-slider .slider {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  transition: right .4s;
+  right: 0;
+}
+
+.top-slider .slide {
+  min-width: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+.top-slider .slide-button {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  opacity: 0.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.top-slider .slide-button.left {
+  left: 20px;
+}
+
+.top-slider .slide-button.right {
+  right: 20px;
+}
+
+.top-slider .slide-button:hover {
+  opacity: 0.6;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -235,7 +426,7 @@ a {
   text-align: center;
 }
 
-#signin .heading {
+.heading {
   font-family: 'Lemonada', cursive;
 }
 
@@ -307,6 +498,10 @@ label {
 
 .bar:after {
   right: 50%;
+}
+
+input {
+  font-family: 'Tajawal', sans-serif;
 }
 
 input:focus~.bar:before, input:focus~.bar:after {
@@ -478,8 +673,9 @@ to {
   background-size: cover;
 }
 
-#signinn .heading {
+.heading {
   font-family: 'Lemonada', cursive;
+  font-weight: bold;
 }
 
 .signin-form-container {
