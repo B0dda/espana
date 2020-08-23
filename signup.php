@@ -16,52 +16,53 @@
 
   </div>
   <div class="signup-form-container">
-    <h1 class="heading">إنشاء حساب</h1>
+    <h1 class="heading mb-10">إنشاء حساب</h1>
     <form action="signup.php" method="POST">
       <div class="two-in-one">
         <div class="group-input flex-1">
-          <input type="text" required>
+          <input type="text" class="bda-input" required>
           <span class="highlight"></span><span class="bar"></span>
           <label> <i class="fas fa-signature"></i> الإسم الأول </label>
         </div>
         <div class="group-input flex-1">
-          <input type="text" required>
+          <input type="text" class="bda-input" required>
           <span class="highlight"></span><span class="bar"></span>
           <label> <i class="fas fa-signature"></i> الإسم الأخير</label>
         </div>
       </div>
       <div class="two-in-one">
         <div class="group-input flex-1">
-          <input type="email" required>
+          <input type="email" class="bda-input" required>
           <span class="highlight"></span><span class="bar"></span>
           <label> <i class="fas fa-envelope"></i> البريد الإلكنروني</label>
         </div>
         <div class="group-input flex-1">
-          <input type="number" required>
+          <input type="number" class="bda-input" required>
           <span class="highlight"></span><span class="bar"></span>
           <label> <i class="fas fa-phone"></i> رقم الهاتف</label>
         </div>
       </div>
       <div class="two-in-one">
         <div class="group-input flex-1">
-          <input type="password" required>
+          <input type="password" class="bda-input" required>
           <span class="highlight"></span><span class="bar"></span>
           <label> <i class="fas fa-lock"></i> كلمة المرور</label>
         </div>
         <div class="group-input flex-1">
-          <input type="password" required>
+          <input type="password" class="bda-input" required>
           <span class="highlight"></span><span class="bar"></span>
           <label> <i class="fas fa-lock"></i> إعادة كلمة المرور</label>
         </div>
       </div>
-      <div class="two-in-one">
-        <div class="group-buttons flex-1">
-          <input type="submit" class="xbutton" value="إنشاء حساب">
-        </div>
-        <div class="group-buttons flex-1">
-          <input type="button" class="xbuttonx" value="لديك حساب بالفعل ؟" onClick="(function(){window.location='signin.php';return false;})();return false;">
-        </div>
+
+      <div class="group-buttons flex-1 mb-10">
+        <input type="submit" class="xbutton p" value="إنشاء حساب">
       </div>
+
+      <div class="group-buttons flex-1">
+        <input type="button" class="xbuttonx p" value="لديك حساب بالفعل ؟" onClick="(function(){window.location='signin.php';return false;})();return false;">
+      </div>
+
 
     </form>
   </div>
