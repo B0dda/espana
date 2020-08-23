@@ -1,0 +1,28 @@
+@import url('main-variables.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#header {
+  height: 120px;
+  background: #000;
+  width: 100%;
+  background: var(--main-bg-color);
+  border-bottom-color: var(--main-color);
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  padding: 0 var(--center-padding);
+  display: flex;
+  align-items: center;
+}
+
+#header .logo {
+  height: 70%;
+}
+
+#header .logo img {
+  height: 100%;
+}
