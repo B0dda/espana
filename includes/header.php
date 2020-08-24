@@ -49,9 +49,13 @@
       </div>
     </div>
     <div class="bottom flex nav-buttons j-c">
-      <?php for ($i=0; $i <7 ; $i++) {
+
+      <?php
+      $items = ["بقالة", "طعام طازج","الهواتف المحمولة والأدوات","الكترونيات","المعيشة المنزلية","الملابس"];
+
+      foreach ($items as $item) {
         ?>
-        <div class="item">الأقسام</div>
+        <div class="item"><?php echo $item; ?></div>
         <?php
       } ?>
 
@@ -65,7 +69,7 @@
                 <?php
               for ($j=0; $j <rand(1,10) ; $j++) {
                 ?>
-                <div class="item"><a href="#">XXXX</a></div>
+                <div class="item"><a href="#">مثال</a></div>
                 <?php
               }
               ?>
