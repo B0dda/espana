@@ -40,7 +40,7 @@ for (let i = 0; i < slider.length; i++) {
     slideElement(slider[i], slides, 1);
   });
   var imagePreview = parentSlider.getElementsByClassName('sec-img');
-  if (imagePreview) {
+  if (imagePreview.length > 0) {
     var imagePreviews = imagePreview[0].getElementsByTagName('img');
     for (let j = 0; j < imagePreviews.length; j++) {
       imagePreviews[j].addEventListener('click', function() {

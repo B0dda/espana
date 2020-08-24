@@ -17,6 +17,10 @@ body, html {
   font-family: 'Tajawal', sans-serif;
 }
 
+body {
+  background: #f8f8f8;
+}
+
 #header {
   height: 140px;
   background: #000;
@@ -169,8 +173,6 @@ body, html {
   width: 100%;
   border-spacing: 0;
 }
-
-.shopping-cart-container table.t tr td:last-of-type {}
 
 .shopping-cart-container table.t tr:nth-of-type(2n) {
   background: #eee;
@@ -335,6 +337,9 @@ body, html {
   flex-wrap: wrap;
   justify-content: space-between;
   display: flex;
+  border: 2px solid #999;
+  border-top: 0;
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.5);
 }
 
 #header .nav .nav-buttons .sub-menu .content::before {
