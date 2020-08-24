@@ -1,10 +1,16 @@
 <?php include('includes/header.php'); ?>
 <div class="top-slider">
   <div class="slider">
-    <div class="slide"></div>
-    <div class="slide" style="background:#222"></div>
-    <div class="slide" style="background:#333"></div>
-    <div class="slide" style="background:#444"></div>
+    <?php
+      $slider = [1,2,3,4,5];
+      foreach ($slider as $slide) {
+        ?>
+        <div class="slide">
+          <img src="uploads/slider_test/<?php echo $slide; ?>.jpg">
+        </div>
+        <?php
+      }
+     ?>
   </div>
   <div class="slide-button left">
     <i class="fas fa-arrow-left"></i>
@@ -12,6 +18,7 @@
   <div class="slide-button right">
     <i class="fas fa-arrow-right"></i>
   </div>
+
 </div>
 
 <div class="wrapper">
@@ -59,6 +66,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+<script type="text/javascript" src="layout/js/all.js"></script>
 </body>
 </html>

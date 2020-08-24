@@ -336,19 +336,53 @@ body, html {
 .top-slider .slider {
   width: 100%;
   height: 100%;
-  position: absolute;
   display: flex;
   transition: right .4s;
-  right: 0;
+  right: 0px;
+  position: absolute;
 }
 
 .top-slider .slide {
   min-width: 100%;
   height: 100%;
   width: 100%;
+  line-height: 100%;
+  position: relative;
+}
+
+.top-slider .slide img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  height: auto;
+  width: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.top-slider .slide img.image-back {
+  min-width: 100%;
+  min-height: 100%;
+  margin: auto;
+  height: auto;
+  width: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  filter: blur(10px);
+  opacity: 0.2;
+  z-index: 1;
 }
 
 .top-slider .slide-button {
+  z-index: 12;
   width: 50px;
   height: 50px;
   position: absolute;
@@ -732,119 +766,119 @@ to {
 }
 
 .wrapper {
-    padding: 0 var(--center-padding);
+  padding: 0 var(--center-padding);
 }
 
 .product-description h1 {
-    text-align: center;
-    margin-bottom: 10px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .product-description ul {
-    margin-right: 30px;
+  margin-right: 30px;
 }
 
 .full-product .availability {
-    color: green;
-    margin-right: 30px;
+  color: green;
+  margin-right: 30px;
 }
 
 .full-product .delev {
-    color:#757575;
-    margin-right: 30px;
+  color: #757575;
+  margin-right: 30px;
 }
 
 .counter-input {
-    width: 50px;
-    height: 30px;
-    text-align: center;
-    border: 2px solid #6381a8;
-    border-radius: 5px;
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  border: 2px solid #6381a8;
+  border-radius: 5px;
 }
 
-.item-counter button{
-    height: 30px;
-    text-align: center;
-    width: 30px;
-    border: none;
-    background-color: #6381a8;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
+.item-counter button {
+  height: 30px;
+  text-align: center;
+  width: 30px;
+  border: none;
+  background-color: #6381a8;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
 }
 
 .item-counter {
-    margin-right: 30px;
+  margin-right: 30px;
 }
 
 hr {
-    width: 70%;
-    margin: 0 auto;
+  width: 70%;
+  margin: 0 auto;
 }
 
 .addpr {
-    width: 120px;
-    height: 35px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    background-color: #59B969;
-    color: white;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 18px;
-    margin-right: 30px;
+  width: 120px;
+  height: 35px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: #59B969;
+  color: white;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 18px;
+  margin-right: 30px;
 }
 
 .pro-price {
-    margin-right: 30px;
-    font-size: 20px;
+  margin-right: 30px;
+  font-size: 20px;
 }
 
 .full-product .main-img {
-    width: 100%;
-    height: 400px;
+  width: 100%;
+  height: 400px;
 }
 
 .sec-img {
-    display: flex;
-    width: 100%;
-    padding: 5px;
+  display: flex;
+  width: 100%;
+  padding: 5px;
 }
 
 .sec-img img {
-    width: 100px;
-    height: 100px;
-    margin: 5px;
-    object-fit:cover;
-    transition: .3s all;
-    cursor: pointer;
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  object-fit: cover;
+  transition: .3s all;
+  cursor: pointer;
 }
 
 .sec-img img:hover {
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.28), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.28), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
 .extra-desc {
-    margin-right: 30px;
+  margin-right: 30px;
 }
 
 .extra-desc button {
-    width: 150px;
-    height: 50px;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 18px;
-    border: none;
-    background: none;
-    cursor: pointer;
-    outline: none;
+  width: 150px;
+  height: 50px;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 18px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
 }
 
 #btnn1 {
-    border-bottom: 1.5px solid #6381a8;
-    color: #6381a8;
+  border-bottom: 1.5px solid #6381a8;
+  color: #6381a8;
 }
 
 #descPrice {
-    visibility: hidden;
+  visibility: hidden;
 }
