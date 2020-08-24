@@ -1,6 +1,6 @@
 <?php include('includes/header.php'); ?>
 <div class="top-slider">
-  <div class="slider">
+  <div class="slider" data-timer="5000">
     <?php
       $slider = [1,2,3,4,5];
       foreach ($slider as $slide) {

@@ -27,11 +27,27 @@ for (let i = 0; i < slider.length; i++) {
   }
   var slideLeft = parentSlider.getElementsByClassName('left')[0];
   var slideRight = parentSlider.getElementsByClassName('right')[0];
+  if (slider[i].hasAttribute('data-timer')) {
+    var time = slider[i].getAttribute('data-timer');
+    setInterval(function() {
+      slideElement(slider[i], slides, -1);
+    }, time);
+  }
   slideLeft.addEventListener('click', function() {
     slideElement(slider[i], slides, -1);
   });
   slideRight.addEventListener('click', function() {
     slideElement(slider[i], slides, 1);
   });
+  var imagePreview = parentSlider.getElementsByClassName('sec-img');
+  if (imagePreview) {
+    var imagePreviews = imagePreview[0].getElementsByTagName('img');
+    for (let j = 0; j < imagePreviews.length; j++) {
+      imagePreviews[j].addEventListener('click', function() {
+        parentSlider.getElementsByClassName('slider')[0].style.right = -1 * j * 100 + "%";
+      });
+    }
+  }
 }
+
 // Slider END

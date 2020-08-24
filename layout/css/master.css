@@ -333,7 +333,7 @@ body, html {
   overflow: hidden;
 }
 
-.top-slider .slider {
+.slider {
   width: 100%;
   height: 100%;
   display: flex;
@@ -342,15 +342,16 @@ body, html {
   position: absolute;
 }
 
-.top-slider .slide {
+.slide {
   min-width: 100%;
   height: 100%;
   width: 100%;
   line-height: 100%;
   position: relative;
+  overflow: hidden;
 }
 
-.top-slider .slide img {
+.slide img {
   max-width: 100%;
   max-height: 100%;
   margin: auto;
@@ -364,7 +365,7 @@ body, html {
   z-index: 10;
 }
 
-.top-slider .slide img.image-back {
+.slide img.image-back {
   min-width: 100%;
   min-height: 100%;
   margin: auto;
@@ -381,7 +382,7 @@ body, html {
   z-index: 1;
 }
 
-.top-slider .slide-button {
+.slide-button {
   z-index: 12;
   width: 50px;
   height: 50px;
@@ -396,15 +397,15 @@ body, html {
   cursor: pointer;
 }
 
-.top-slider .slide-button.left {
+.slide-button.left {
   left: 20px;
 }
 
-.top-slider .slide-button.right {
+.slide-button.right {
   right: 20px;
 }
 
-.top-slider .slide-button:hover {
+.slide-button:hover {
   opacity: 0.6;
 }
 
@@ -838,6 +839,10 @@ hr {
 .full-product .main-img {
   width: 100%;
   height: 400px;
+}
+
+.full-product .main-img.slide {
+  max-height: 350px;
 }
 
 .sec-img {
