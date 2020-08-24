@@ -40,6 +40,8 @@
             <div class="item">جميع الأقسام</div>
           </menu>
         </div>
+
+
         <form action="search" class="flex f-1" method="get">
           <input type="text" class="input" name="q" placeholder="ماذا تبحث عن؟">
           <button type="submit"> <i class="fas fa-search"></i> </button>
@@ -47,13 +49,62 @@
       </div>
     </div>
     <div class="bottom flex nav-buttons j-c">
-      <div class="item">الأقسام</div>
-      <div class="item">الأقسام</div>
-      <div class="item">الأقسام</div>
-      <div class="item">الأقسام</div>
-      <div class="item">الأقسام</div>
-      <div class="item">الأقسام</div>
-      <div class="item">الأقسام</div>
+      <?php for ($i=0; $i <7 ; $i++) {
+        ?>
+        <div class="item">الأقسام</div>
+        <?php
+      } ?>
+
+      <div id="page-overlay"></div>
+      <div class="sub-menu">
+        <?php for ($i=0; $i <7 ; $i++) {
+          ?>
+          <div class="content">
+            <?php for($k = 0; $k<rand(1,10); $k++){
+              ?>
+              <div class="menu">
+                <?php
+              for ($j=0; $j <rand(1,10) ; $j++) {
+                ?>
+                <div class="item"><a href="#">XXXX</a></div>
+                <?php
+              }
+              ?>
+              </div>
+              <?php
+            } ?>
+
+            <div class="menu extra"></div>
+            <div class="menu extra"></div>
+            <div class="menu extra"></div>
+            <div class="menu extra"></div>
+          </div>
+          <?php
+        } ?>
+      </div>
+      <script type="text/javascript">
+        var navSubMenus = document.querySelectorAll(".nav-buttons .content");
+        var navCategories = document.querySelectorAll(".nav-buttons .item");
+        for(let i = 0; i<navCategories.length; i++){
+          document.addEventListener('mouseover', function(e){
+            if(navSubMenus[i])
+            if(e.target !== navCategories[i] && e.target !== navSubMenus[i] && !(navSubMenus[i].contains(e.target))){
+              if(navSubMenus[i]){
+                navSubMenus[i].style.display = "none";
+                document.getElementById('page-overlay').style.display = "none";
+              }
+            }else{
+              document.getElementById('page-overlay').style.display = "block";
+            }
+          });
+          navCategories[i].addEventListener('mouseover',function(){
+            if(navSubMenus[i]){
+              navSubMenus[i].style.display = "flex";
+            }
+          });
+        }
+      </script>
     </div>
+
   </div>
 </div>

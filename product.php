@@ -1,29 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="layout/css/master.css">
-    <script src="https://kit.fontawesome.com/b1361fb5d5.js" crossorigin="anonymous"></script>
-    <title>عرض المنتج | اسبانا</title>
-</head>
-<body id="product">
+<?php $title = "عرض المنتج" ?>
+<?php include('includes/header.php'); ?>
     <div class="wrapper">
         <div class="container">
-            <div class="full-product">
-                <div class="product-images">
-                    <div class="main-img">
-                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg" alt="">
+            <div class="full-product" >
+                <div class="product-images" style="position:relative; overflow:hidden;height:500px;">
+                  <div class="slider">
+                    <div class="main-img slide">
+                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg">
                     </div>
-                    <div class="sec-img">
-                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg" alt="">
-                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg" alt="">
-                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg" alt="">
-                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg" alt="">
+                    <div class="main-img slide">
+                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg">
                     </div>
-                    
+                  </div>
+
+                    <div class="sec-img" style="position:absolute;bottom:0;">
+                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg" >
+                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg" >
+                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg" >
+                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg">
+                    </div>
+                    <div class="slide-button left">
+                      <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <div class="slide-button right">
+                      <i class="fas fa-arrow-right"></i>
+                    </div>
                 </div>
                 <div class="product-description">
                     <h1>ريزر لوحة مفاتيح ريزر بلاك ويدو تي إي كروما الإصدار الثاني</h1>
@@ -53,7 +54,7 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
     </div>
     <script>
         function showDesc()
@@ -77,6 +78,9 @@
 
             document.getElementById("descDesc").innerHTML = "Payment method Accepted. OnlinePayment. You can pay by using Master Visa and Amex Credit Card*Only GCC card Accepted*Corporate Cards Not accepted.";
         }
+    </script>
+    <script type="text/javascript" src="layout/js/all.js">
+
     </script>
 </body>
 </html>
