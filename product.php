@@ -45,7 +45,7 @@
                         <input type="number" class="counter-input" value="1">
                         <button><i class="fas fa-minus"></i></button>
                     </div>
-                    <input type="button" class="addpr mb-30" name="" id="" value="اضف للسلة">
+                    <a href="cart.php"><input type="button" class="addpr mb-30" name="" id="" value="اضف للسلة"></a>
                     <div class="extra-desc">
                         <button id="btnn1" onclick="showDesc()">الوصف و المميزات</button>
                         <button id="btnn2" onclick="showPrice()">الدفع و التوصيل</button>

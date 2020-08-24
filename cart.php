@@ -26,11 +26,11 @@
         <td></td>
       </tr>
       <tr>
-        <td><div class="button add">إنهاء عملية الدفع</td>
+        <td><a href="checkout.php"><div class="button add">إنهاء عملية الدفع</a></td>
           <td></td>
           <td></td>
           <td> <div class="price">100 ر.س</div></td>
-        <td><div class="button">أكمل تصفح المنتجات</td>
+        <td><a href="index.php"><div class="button">أكمل تصفح المنتجات</a></td>
       </tr>
     </table>
     <div class="flex" style="justify-content:space-between;">

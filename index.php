@@ -29,7 +29,7 @@
     <?php for($i =0; $i<5; $i++): ?>
     <div class="card">
       <div class="product-image">
-        <img src="uploads/photo.jpeg">
+        <a href="product.php"><img src="uploads/photo.jpeg"></a>
       </div>
       <div class="title">
         ريزر لوحة مفاتيح ريزر بلاك ويدو تي إي كروما الإصدار الثاني
@@ -43,9 +43,10 @@
     </div>
   <?php endfor ?>
   <?php for($i =0; $i<5; $i++): ?>
+ 
   <div class="card">
     <div class="product-image">
-      <img src="uploads/photo.jpeg">
+    <a href="product.php"><img src="uploads/photo.jpeg"></a>
     </div>
     <div class="title">
       هذ نص للتجربة
