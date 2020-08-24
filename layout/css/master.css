@@ -287,6 +287,20 @@ body, html {
   border: none;
 }
 
+#page-overlay {
+  position: absolute;
+  width: 100vw;
+  height: calc(100vh - 140px);
+  background: #00000099;
+  left: 0;
+  top: 140px;
+  z-index: 9999;
+}
+
+#header .nav .bottom .item:hover~#page-overlay {
+  display: block;
+}
+
 #header .nav .center .search .cat-button .icon {
   position: absolute;
   top: 50%;
@@ -302,6 +316,60 @@ body, html {
   font-weight: bold;
   font-size: 17px;
   border-bottom: 2px solid transparent;
+}
+
+#header .nav .nav-buttons .sub-menu {
+  width: 100%;
+  position: absolute;
+  top: 140px;
+  right: 0;
+  padding: 0 var(--center-padding);
+  z-index: 99999;
+}
+
+#header .nav .nav-buttons .sub-menu .content {
+  width: 100%;
+  min-height: 100px;
+  background: #fff;
+  padding: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  display: flex;
+}
+
+#header .nav .nav-buttons .sub-menu .content::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  bottom: 100%;
+}
+
+#header .nav .nav-buttons .sub-menu .content .menu {
+  width: 23%;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#header .nav .nav-buttons .sub-menu .content .menu.extra {
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+#header .nav .nav-buttons .sub-menu .content .menu .item {
+  border: 0;
+  font-weight: normal;
+  height: auto;
+}
+
+#header .nav .nav-buttons .sub-menu .content .menu .item a:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+}
+
+#header .nav .nav-buttons .sub-menu .content .menu .item:first-of-type {
+  font-weight: bold;
 }
 
 #header .nav .nav-buttons .item:hover {
