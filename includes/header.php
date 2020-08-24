@@ -55,7 +55,6 @@
         <?php
       } ?>
 
-      <div id="page-overlay"></div>
       <div class="sub-menu">
         <?php for ($i=0; $i <7 ; $i++) {
           ?>
@@ -91,10 +90,7 @@
             if(e.target !== navCategories[i] && e.target !== navSubMenus[i] && !(navSubMenus[i].contains(e.target))){
               if(navSubMenus[i]){
                 navSubMenus[i].style.display = "none";
-                document.getElementById('page-overlay').style.display = "none";
               }
-            }else{
-              document.getElementById('page-overlay').style.display = "block";
             }
           });
           navCategories[i].addEventListener('mouseover',function(){
