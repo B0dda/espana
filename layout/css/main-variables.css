@@ -3,4 +3,11 @@
   --main-color: #6381a8;
   --shade-color: #8891AC;
   --center-padding: 15%;
+  --primary-c: #2196F3;
+	--secondary-c: #B2D7F5;
+	
+	--white: #FDFBFB;
+	
+	--text: #082943;	
+	--bg: var(--primary-c);
 }
