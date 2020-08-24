@@ -401,6 +401,11 @@ body {
   width: 100%;
   border-left: 0;
   padding: 0 10px;
+  outline: none;
+}
+
+button {
+  outline: none;
 }
 
 .top-slider {
