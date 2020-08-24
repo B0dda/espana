@@ -50,12 +50,22 @@
     <div class="title">
       هذ نص للتجربة
     </div>
-    <div class="sep"></div>
-    <div class="price">
+    <div class="sep mb-30"></div>
+    <!-- <div class="price mb-30">
       1,000 ر.س
-    </div>
-    <div class="button w-80 view">عرض</div>
-    <div class="button w-80 add">أضف للسلة</div>
+    </div> -->
+    <!-- <div class="button w-80 view">عرض</div>
+    <div class="button w-80 add">أضف للسلة</div> -->
+
+
+    <!-- Custom Add and View buttons  -->
+    <!-- <div class="two-in-one">
+      <button class="cus-btn flex-1" id="addBtn"><i class="fas fa-shopping-cart"></i></button>
+      <button class="cus-btn flex-1" id="viewBtn"><i class="fas fa-eye"></i></button>
+    </div> -->
+    <div class="buttonnn w-60 add"> أضف  1,000 رس</div>
+
+
   </div>
 <?php endfor ?>
   <div class="card extra"></div>
@@ -69,3 +79,4 @@
 <script type="text/javascript" src="layout/js/all.js"></script>
 </body>
 </html>
+<?php include('includes/footer.php'); ?>

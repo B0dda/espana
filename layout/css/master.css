@@ -97,7 +97,7 @@ body {
 
 .product-cards .card {
   margin-top: 30px;
-  min-height: 470px;
+  min-height: 400px;
   width: 310px;
   padding: 10px;
   border: 1px solid #999;
@@ -153,10 +153,15 @@ body {
   border-radius: 5px;
   background: var(--shade-color);
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .w-80 {
   width: 80%;
+}
+
+.w-60 {
+  width: 60%;
 }
 
 .button.add {
@@ -518,7 +523,7 @@ a {
   height: 100%;
 }
 
-.signup-form-container {
+.signup-form-container { 
   width: 60%;
   height: 500px;
   background-color: white;
@@ -1059,4 +1064,154 @@ hr {
 
 #cardno, #cardmon, #cardyear, #cvv {
   display: none;
+}
+
+
+/* Custom Button Style Start  */
+.cus-btn {
+  height: 50px;
+  outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: .2s all;
+}
+
+#addBtn {
+  background-color: #59B969;
+  border: 1px solid #59B969;
+  
+}
+
+#viewBtn {
+  background-color: #6381a8;
+  border: 1px solid #6381a8;
+}
+
+.cus-btn i {
+  font-size: 28px;
+  color: white;
+}
+
+#addBtn:hover , .cus-btn i:hover {
+  background-color: white;
+  color: #59B969 !important;
+}
+/* Custom Button Style End  */
+
+
+.buttonnn {
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  background: var(--shade-color);
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+/* Footer Styling Start  */
+
+#footer {
+  margin-top: 30px;
+  width: 100%;
+  background: #7ea4d6;
+  position: relative;
+}
+
+#footer .f {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 45px 7%;
+}
+
+#footer .logo {
+  flex-grow: 1;
+  flex-basis: 400px;
+  min-width: 300px;
+  margin-bottom: 30px;
+}
+
+#footer .logo img {
+  width: 120px;
+}
+
+#footer .logo .content {
+  margin-top: 20px;
+  color: white;
+  max-width: 450px;
+  text-align: justify;
+}
+
+#footer .links {
+  flex-grow: 2;
+  flex-basis: 300px;
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+#footer .links .col {
+  width: 200px;
+  direction: rtl;
+}
+
+#footer .links .col li {
+  margin-bottom: 25px;
+  list-style-type: none;
+  font-size: 18px;
+}
+
+#footer .links .col a {
+  color: #dfdfdf;
+}
+
+#footer .links .col a:hover {
+  color: #f4f4f4;
+}
+
+#footer .footer-end {
+  background: #6381a8;
+  padding: 45px 7%;
+  color: #999;
+  height: 120px;
+}
+
+#footer .footer-end .legal {
+  color: white;
+  float: right;
+}
+
+#footer .social {
+  float: left;
+  display: flex;
+}
+
+#footer .social a {
+  margin-right: 15px;
+}
+
+#footer .top {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+  position: absolute;
+  top: 20px;
+  left: 7%;
+  border-radius: 10px;
+  opacity: 0.6;
+  transition: opacity .2s;
+}
+
+#footer .top:hover {
+  opacity: 1;
 }

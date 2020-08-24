@@ -82,5 +82,4 @@
     <script type="text/javascript" src="layout/js/all.js">
 
     </script>
-</body>
-</html>
+<?php include('includes/footer.php'); ?>
