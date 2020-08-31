@@ -33,6 +33,7 @@ if (isset($_POST['signin']))
 }
 include('includes/header.php'); 
 ?>
+<?php include('includes/header.php'); ?>
 
   <div class="container">
 

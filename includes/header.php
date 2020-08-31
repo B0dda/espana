@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <?php include_once('includes/head.php');
 ?>
+=======
+<?php include_once('includes/head.php'); ?>
+>>>>>>> 5df60ec4064c761b6df6d3e2f14ecb40b7204bb0
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +12,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/b1361fb5d5.js" crossorigin="anonymous"></script>
+<<<<<<< HEAD
   <script type="text/javascript" src="layout/js/all.js"></script>
+=======
+>>>>>>> 5df60ec4064c761b6df6d3e2f14ecb40b7204bb0
   <link rel="stylesheet" href="./layout/css/master.css">
   <title><?php echo $title; ?></title>
 </head>
 <body>
+<<<<<<< HEAD
 <div id="header"> 
   <div class="logo">
     <a href="index.php"> <img src="layout/png/logo.png"></a>
@@ -38,6 +46,22 @@
                     </div>";
           }
       ?>
+=======
+<div id="header">
+  <div class="logo">
+    <img src="layout/png/logo.png">
+  </div>
+  <div class="nav">
+    <div class="top flex fd-rr">
+      <div class="login flex">
+        <div class="xbuttonx">
+          <a href="signup.php"><i class="fas fa-user-plus m-5"></i>تسجيل</a>
+        </div>
+        <div class="xbuttonx mr-5">
+          <a href="signin.php"><i class="fas fa-sign-in-alt m-5"></i>دخول</a>
+        </div>
+      </div>
+>>>>>>> 5df60ec4064c761b6df6d3e2f14ecb40b7204bb0
     </div>
     <div class="center flex a-c">
       <div class="search flex w-100">

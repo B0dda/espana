@@ -65,6 +65,10 @@ if ( isset( $_POST['submit'] ) )
 
 ?>
   <div class="container">
+<?php $title = "تسجيل الدخول" ?>
+<?php include('includes/header.php'); ?>
+  <div class="container">
+
   </div>
   <div class="signup-form-container">
     <h1 class="heading mb-10">إنشاء حساب</h1>
