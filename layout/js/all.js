@@ -11,7 +11,6 @@ function slideElement(e, items, m = 1) {
     sliderPosition = "0";
   }
   e.style.right = sliderPosition + "%";
-
 }
 for (let i = 0; i < slider.length; i++) {
   slider[i].style.position = 'absolute';

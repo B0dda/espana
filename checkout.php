@@ -363,7 +363,7 @@
                             <label> <i class="fas fa-lock icon"></i> CVV</label>
                         </div>
                         <div class="group-buttons flex-1 mb-10">
-                            <input type="submit" class="xbutton p" name="confirm" id="submit-new" value="  إتمام العملية">
+                            <input type="submit" class="xbutton p" name="confirm" id="submit-new" value="  إتمام العملية" onClick="(function(){window.location='index.php';return false;})();return false;">
                         </div>
                     <script>
                         function checkCard() 

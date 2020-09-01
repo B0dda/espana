@@ -19,10 +19,10 @@
     <div class="top flex fd-rr">
       <div class="login flex">
         <div class="xbuttonx">
-          <a href="#"><i class="fas fa-user-plus m-5"></i>تسجيل</a>
+          <a href="signup.php"><i class="fas fa-user-plus m-5"></i>تسجيل</a>
         </div>
         <div class="xbuttonx mr-5">
-          <a href="#"><i class="fas fa-sign-in-alt m-5"></i>دخول</a>
+          <a href="signin.php"><i class="fas fa-sign-in-alt m-5"></i>دخول</a>
         </div>
       </div>
     </div>

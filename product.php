@@ -6,18 +6,25 @@
                 <div class="product-images" style="position:relative; overflow:hidden;height:500px;">
                   <div class="slider">
                     <div class="main-img slide">
-                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg">
+                        <img src="http://lorempixel.com/400/200/food/?=1">
                     </div>
                     <div class="main-img slide">
-                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg">
+                        <img src="http://lorempixel.com/400/200/food/?=2">
                     </div>
+                    <div class="main-img slide">
+                        <img src="http://lorempixel.com/400/200/food/?=3">
+                    </div>
+                    <div class="main-img slide">
+                        <img src="http://lorempixel.com/200/400/food/?=4">
+                    </div>
+
                   </div>
 
                     <div class="sec-img" style="position:absolute;bottom:0;">
-                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg" >
-                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg" >
-                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg" >
-                        <img src="layout/jpeg/pexels-tuur-tisseghem-812264.jpg">
+                        <img src="http://lorempixel.com/400/200/food/?=1" >
+                        <img src="http://lorempixel.com/400/200/food/?=2" >
+                        <img src="http://lorempixel.com/400/200/food/?=3" >
+                        <img src="http://lorempixel.com/200/400/food/?=4">
                     </div>
                     <div class="slide-button left">
                       <i class="fas fa-arrow-left"></i>
@@ -45,7 +52,7 @@
                         <input type="number" class="counter-input" value="1">
                         <button><i class="fas fa-minus"></i></button>
                     </div>
-                    <input type="button" class="addpr mb-30" name="" id="" value="اضف للسلة">
+                    <a href="cart.php"><input type="button" class="addpr mb-30" name="" id="" value="اضف للسلة"></a>
                     <div class="extra-desc">
                         <button id="btnn1" onclick="showDesc()">الوصف و المميزات</button>
                         <button id="btnn2" onclick="showPrice()">الدفع و التوصيل</button>
@@ -79,7 +86,5 @@
             document.getElementById("descDesc").innerHTML = "Payment method Accepted. OnlinePayment. You can pay by using Master Visa and Amex Credit Card*Only GCC card Accepted*Corporate Cards Not accepted.";
         }
     </script>
-    <script type="text/javascript" src="layout/js/all.js">
 
-    </script>
 <?php include('includes/footer.php'); ?>

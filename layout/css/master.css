@@ -15,6 +15,7 @@ body, html {
   box-sizing: border-box;
   height: 100%;
   font-family: 'Tajawal', sans-serif;
+  width: 100%;
 }
 
 body {
@@ -164,7 +165,7 @@ body {
   width: 60%;
 }
 
-.button.add {
+.button.add, .buttonnn.add {
   background: #59B969;
 }
 
@@ -528,7 +529,7 @@ a {
   height: 100%;
 }
 
-.signup-form-container { 
+.signup-form-container {
   width: 60%;
   height: 500px;
   background-color: white;
@@ -835,7 +836,7 @@ to {
 }
 
 .product-images img {
-  width: 100%;
+  /* width: 100%; */
 }
 
 .product-description {
@@ -1065,7 +1066,6 @@ hr {
   display: none;
 }
 
-
 /* Custom Button Style Start  */
 .cus-btn {
   height: 50px;
@@ -1079,7 +1079,6 @@ hr {
 #addBtn {
   background-color: #59B969;
   border: 1px solid #59B969;
-  
 }
 
 #viewBtn {
@@ -1092,13 +1091,12 @@ hr {
   color: white;
 }
 
-#addBtn:hover , .cus-btn i:hover {
+#addBtn:hover, .cus-btn i:hover {
   background-color: white;
   color: #59B969 !important;
 }
+
 /* Custom Button Style End  */
-
-
 .buttonnn {
   display: table;
   margin: 0 auto;
@@ -1113,7 +1111,6 @@ hr {
 }
 
 /* Footer Styling Start  */
-
 #footer {
   margin-top: 30px;
   width: 100%;
