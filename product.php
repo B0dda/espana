@@ -17,8 +17,6 @@ else
 }
 
 ?>
-<?php $title = "عرض المنتج" ?>
-<?php include('includes/header.php'); ?>
     <div class="wrapper">
         <div class="container">
             <div class="full-product" >
