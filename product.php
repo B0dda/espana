@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('includes/header.php');
 $title = "عرض المنتج";
 if(isset($_GET['id']))
@@ -10,8 +10,8 @@ if(isset($_GET['id']))
       die('PRODUCT NOT FOUND!');
     }
     $product_info = $product_info[0];
-} 
-else 
+}
+else
 {
     die('PRODUCT NOT FOUND!');
 }
@@ -28,7 +28,7 @@ else
                     <div class="main-img slide">
                         <img src="layout/jpeg/1715195-01.jfif">
                     </div>
-                  </div> 
+                  </div>
 
                     <div class="sec-img" style="position:absolute;bottom:0;">
                         <img src="layout/jpeg/1715195-01.jfif" >
@@ -44,13 +44,13 @@ else
                 <div class="product-description">
                     <h1><?php echo $product_info['name']; ?></h1>
                     <p class="pro-price mb-10">ر س <?php echo $product_info['price']; ?></p>
-                    <?php 
+                    <?php
                     if($product_info['name'] == 1) {
                         print "<p class='availability mb-10'>متوفر</p>";
                     } else if ($product_info['name'] == 0) {
                         print "<p class='availability mb-10'style='color:red;'>الكمية نفذت</p>";
                     }
-                    
+
                     ?>
                     <p class="delev mb-10">يتم التوصيل في خلال 4 - 8 ايام عمل</p>
                     <ul class="mb-10">
@@ -69,7 +69,7 @@ else
                         ?>
                         <?php
                         } ?>
-                                    
+
                     </ul>
                     <hr class="mb-30">
                     <div class="item-counter mb-10">

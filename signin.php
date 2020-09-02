@@ -1,26 +1,26 @@
 <?php $title = "تسجيل الدخول" ?>
-<?php 
-include_once('includes/head.php'); 
-if (isset($_POST['signin'])) 
+<?php
+include_once('includes/head.php');
+if (isset($_POST['signin']))
 {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $date = date('Y-m-d H:i:s');
 
-    if (DB::query('SELECT email FROM users WHERE email=:email', array(':email'=>$email))) 
+    if (DB::query('SELECT email FROM users WHERE email=:email', array(':email'=>$email)))
     {
-        if (password_verify($password, DB::query('SELECT password FROM users WHERE email=:email', array(':email'=>$email))[0]['password'])) 
+        if (password_verify($password, DB::query('SELECT password FROM users WHERE email=:email', array(':email'=>$email))[0]['password']))
         {
                 echo '<script>alert("تم تسجيل الدخول")</script>';
                 echo '<script>window.location="index.php"</script>';
                 $cstrong = True;
                 $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
                 $user_id = DB::query('SELECT id FROM users WHERE email=:email', array(':email'=>$email))[0]['id'];
-                
+
                 DB::query('INSERT INTO login_tokens VALUES (\'\', :token, :user_id, :date)', array(':token'=>sha1($token), ':user_id'=>$user_id,':date'=>$date));
 
                 setcookie("SNID", $token, time() + 60 * 60 * 24 * 7, '/', NULL, NULL, TRUE);
-                setcookie("SNID_", '1', time() + 60 * 60 * 24 * 3, '/', NULL, NULL, TRUE); 
+                setcookie("SNID_", '1', time() + 60 * 60 * 24 * 3, '/', NULL, NULL, TRUE);
 
         } else {
                 echo '<script>alert("خطأ في كلمة المرور")</script>';
@@ -31,7 +31,7 @@ if (isset($_POST['signin']))
             echo '<script>window.location="signin.php"</script>';
     }
 }
-include('includes/header.php'); 
+include('includes/header.php');
 ?>
 
   <div class="container">

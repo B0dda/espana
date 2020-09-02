@@ -1,8 +1,8 @@
 <?php include('includes/header.php'); ?>
-<?php 
+<?php
 $title = "إنشاء حساب";
 
-if ( isset( $_POST['submit'] ) ) 
+if ( isset( $_POST['submit'] ) )
 {
   $fname = $_POST['fname'];
   $lname = $_POST['lname'];
@@ -29,35 +29,35 @@ if ( isset( $_POST['submit'] ) )
                                 ':email'=>$email,
                                 ':phone'=>$phone,
                                 ':password'=>password_hash($password, PASSWORD_BCRYPT)));
-                          echo '<script>alert("تم انشاء الحساب بنجاح! يمكن الآن تسجيل الدخول")</script>';  
+                          echo '<script>alert("تم انشاء الحساب بنجاح! يمكن الآن تسجيل الدخول")</script>';
                           echo '<script>window.location="signin.php"</script>';
                       }
-                      else 
+                      else
                       {
                           echo '<script>alert("الباسورد غير مطابق  !")</script>';
                       }
-                  } 
-                  else 
+                  }
+                  else
                   {
                       echo '<script>alert("خطأ في البريد الالكتروني!")</script>';
                   }
-              } 
-              else 
+              }
+              else
               {
                   echo '<script>alert("خطأ في كلمة المرور!")</script>';
               }
-          } 
-          else 
+          }
+          else
           {
               echo '<script>alert("خطأ في اسم المستخدم!")</script>';
           }
       }
-      else 
+      else
       {
           echo '<script>alert(" خطأ في الاسم او يحتوي علي حروف غير مقبولة !")</script>';
       }
   }
-  else 
+  else
   {
       echo '<script>alert("مسجل بالفعل!")</script>';
   }

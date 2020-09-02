@@ -13,20 +13,20 @@
   <title><?php echo $title; ?></title>
 </head>
 <body>
-<div id="header"> 
+<div id="header">
   <div class="logo">
     <a href="index.php"> <img src="layout/png/logo.png"></a>
   </div>
   <div class="nav">
     <div class="top flex fd-rr">
       <?php
-          if (Login::isLoggedIn()) 
+          if (Login::isLoggedIn())
           {
             $userid = Login::isLoggedIn();
             $fname = DB::query('SELECT fname FROM users WHERE id=:id', array(':id'=>$userid))[0]['fname'];
             print "<div class='login flex'>مرحبا , $fname</div>";
           }
-          else 
+          else
           {
             print" <div class='login flex'>
                       <div class='xbuttonx'>
@@ -48,13 +48,15 @@
           </div>
           <menu>
             <div class="item"><b>جميع الأقسام</b></div>
-            <div class="item">جميع الأقسام</div>
-            <div class="item">جميع الأقسام</div>
-            <div class="item">جميع الأقسام</div>
+            <?php $categories = DB::query('SELECT * FROM categories');
+            foreach ($categories as $cat) {
+              ?>
+              <div class="item"><?php echo $cat['category']; ?></div>
+              <?php
+            }
+             ?>
           </menu>
         </div>
-
-
         <form action="search" class="flex f-1" method="get">
           <input type="text" class="input" name="q" placeholder="ماذا تبحث عن؟">
           <button type="submit"> <i class="fas fa-search"></i> </button>
@@ -62,23 +64,30 @@
       </div>
     </div>
     <div class="bottom flex nav-buttons j-c">
-      <?php for ($i=0; $i <7 ; $i++) {
-        ?>
-        <div class="item">الأقسام</div>
-        <?php
-      } ?>
 
+      <?php
+      $categories = DB::query('SELECT * FROM categories');
+      foreach ($categories as $cat) {
+        ?>
+        <div class="item"><?php echo $cat['category']; ?></div>
+        <?php
+      }
+       ?>
+      <?php
+       ?>
       <div class="sub-menu">
-        <?php for ($i=0; $i <7 ; $i++) {
+        <?php foreach ($categories as $cat) {
+          $menus = DB::query('SELECT * FROM branchone WHERE category = :category',array(':category'=>$cat['id']));
           ?>
           <div class="content">
-            <?php for($k = 0; $k<rand(1,10); $k++){
+            <?php foreach($menus as $menu){
               ?>
               <div class="menu">
+                <div class="item"><a href="#"><?php echo $menu['branchOne']; ?></a></div>
                 <?php
               for ($j=0; $j <rand(1,10) ; $j++) {
                 ?>
-                <div class="item"><a href="product.php">XXXX</a></div>
+                <div class="item"><a href="#">مثال</a></div>
                 <?php
               }
               ?>
