@@ -1,30 +1,38 @@
-<?php $title = "عرض المنتج" ?>
-<?php include('includes/header.php'); ?>
+<?php
+include('includes/header.php');
+$title = "عرض المنتج";
+if(isset($_GET['id']))
+{
+    $product_info = DB::query('SELECT * FROM products WHERE id=:id',array(':id'=>$_GET['id']));
+    $product_features = DB::query('SELECT * FROM features WHERE product_id=:product_id',array(':product_id'=>$_GET['id']));
+    if(!$product_info)
+    {
+      die('PRODUCT NOT FOUND!');
+    }
+    $product_info = $product_info[0];
+}
+else
+{
+    die('PRODUCT NOT FOUND!');
+}
+
+?>
     <div class="wrapper">
         <div class="container">
             <div class="full-product" >
                 <div class="product-images" style="position:relative; overflow:hidden;height:500px;">
                   <div class="slider">
                     <div class="main-img slide">
-                        <img src="http://lorempixel.com/400/200/food/?=1">
+                        <img src="layout/jpeg/1715195-01.jfif">
                     </div>
                     <div class="main-img slide">
-                        <img src="http://lorempixel.com/400/200/food/?=2">
+                        <img src="layout/jpeg/1715195-01.jfif">
                     </div>
-                    <div class="main-img slide">
-                        <img src="http://lorempixel.com/400/200/food/?=3">
-                    </div>
-                    <div class="main-img slide">
-                        <img src="http://lorempixel.com/200/400/food/?=4">
-                    </div>
-
                   </div>
 
                     <div class="sec-img" style="position:absolute;bottom:0;">
-                        <img src="http://lorempixel.com/400/200/food/?=1" >
-                        <img src="http://lorempixel.com/400/200/food/?=2" >
-                        <img src="http://lorempixel.com/400/200/food/?=3" >
-                        <img src="http://lorempixel.com/200/400/food/?=4">
+                        <img src="layout/jpeg/1715195-01.jfif" >
+                        <img src="layout/jpeg/1715195-01.jfif" >
                     </div>
                     <div class="slide-button left">
                       <i class="fas fa-arrow-left"></i>
@@ -34,17 +42,34 @@
                     </div>
                 </div>
                 <div class="product-description">
-                    <h1>ريزر لوحة مفاتيح ريزر بلاك ويدو تي إي كروما الإصدار الثاني</h1>
-                    <p class="pro-price mb-10">ر س 2,399.00</p>
-                    <p class="availability mb-10">متوفر</p>
+                    <h1><?php echo $product_info['name']; ?></h1>
+                    <p class="pro-price mb-10">ر س <?php echo $product_info['price']; ?></p>
+                    <?php
+                    if($product_info['name'] == 1) {
+                        print "<p class='availability mb-10'>متوفر</p>";
+                    } else if ($product_info['name'] == 0) {
+                        print "<p class='availability mb-10'style='color:red;'>الكمية نفذت</p>";
+                    }
+
+                    ?>
                     <p class="delev mb-10">يتم التوصيل في خلال 4 - 8 ايام عمل</p>
                     <ul class="mb-10">
-                        <li><p>نوع الماركة : HP</p></li>
-                        <li>SSD:256GB</li>
-                        <li>RAM:8GB</li>
-                        <li>Graphics:AMD Radeon</li>
-                        <li>Processor:R5-3500U</li>
-                        <li>OS: Windows 10</li>
+                        <li><p>نوع الماركة : <?php echo $product_info['brand']; ?></p></li>
+
+                        <?php
+                        $count=0;
+                        foreach ($product_features as $product_feature) {
+                        ?>
+                            <li><?php echo $product_feature["feature"];?></li>
+                            <?php
+                            $count++;
+                        }
+                        ?>
+                        <?php for($i = 1; $i<=$count; $i++){
+                        ?>
+                        <?php
+                        } ?>
+
                     </ul>
                     <hr class="mb-30">
                     <div class="item-counter mb-10">
@@ -56,7 +81,7 @@
                     <div class="extra-desc">
                         <button id="btnn1" onclick="showDesc()">الوصف و المميزات</button>
                         <button id="btnn2" onclick="showPrice()">الدفع و التوصيل</button>
-                        <p id="descDesc">Pace by Jaguar is a Aromatic Fougere fragrance for men. Pace was launched in 2016. Pace was created by Alexandra Monet and Philippe Romano. Top notes are black pepper, green apple and rosemary. middle notes are cashmere wood, lavender and iris flower. base notes are amberwood, patchouli and moss.</p>
+                        <p id="descDesc"><?php echo $product_info['description']; ?></p>
                         <p id="descPrice"></p>
                     </div>
                 </div>
@@ -66,25 +91,26 @@
     <script>
         function showDesc()
         {
+            var Description = "<?php echo $product_info['description']; ?>";
             document.getElementById("btnn1").style.color = "#6381a8";
             document.getElementById("btnn2").style.color = "black";
 
             document.getElementById("btnn1").style.borderBottom = "1.5px solid #6381a8";
             document.getElementById("btnn2").style.border = "none";
 
-            document.getElementById("descDesc").innerHTML = "Pace by Jaguar is a Aromatic Fougere fragrance for men. Pace was launched in 2016. Pace was created by Alexandra Monet and Philippe Romano. Top notes are black pepper, green apple and rosemary. middle notes are cashmere wood, lavender and iris flower. base notes are amberwood, patchouli and moss.";
+            document.getElementById("descDesc").innerHTML = Description;
         }
 
         function showPrice()
         {
+            var Payment = "<?php echo $product_info['paymentDetails']; ?>";
             document.getElementById("btnn2").style.color = "#6381a8";
             document.getElementById("btnn1").style.color = "black";
 
             document.getElementById("btnn2").style.borderBottom = "1.5px solid #6381a8";
             document.getElementById("btnn1").style.border = "none";
 
-            document.getElementById("descDesc").innerHTML = "Payment method Accepted. OnlinePayment. You can pay by using Master Visa and Amex Credit Card*Only GCC card Accepted*Corporate Cards Not accepted.";
+            document.getElementById("descDesc").innerHTML = Payment;
         }
     </script>
-
 <?php include('includes/footer.php'); ?>

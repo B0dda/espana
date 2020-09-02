@@ -542,6 +542,10 @@ a {
   margin-top: 100px;
 }
 
+.signup-form-container form {
+  height: 100%;
+}
+
 .heading {
   font-family: 'Lemonada', cursive;
 }
@@ -667,7 +671,6 @@ from {
 to {
   width: 0;
   background: transparent;
-}
 }
 
 @-moz-keyframes inputHighlighter {
@@ -917,6 +920,10 @@ hr {
 .full-product .main-img {
   width: 100%;
   height: 400px;
+}
+
+.full-product .main-img img {
+  object-fit: cover;
 }
 
 .full-product .main-img.slide {
@@ -1210,4 +1217,19 @@ hr {
 
 #footer .top:hover {
   opacity: 1;
+}
+
+@media only screen and (max-width: 768px) {
+  .signin-form-container {
+    width: 90%;
+  }
+
+  .signup-form-container {
+    width: 90%;
+    height: 160%;
+  }
+
+  .signup-form-container .two-in-one {
+    display: block;
+  }
 }

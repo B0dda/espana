@@ -1,4 +1,5 @@
-<?php include_once('includes/head.php'); ?>
+<?php include_once('includes/head.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,24 +8,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/b1361fb5d5.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="layout/js/all.js"></script>
+
   <link rel="stylesheet" href="./layout/css/master.css">
   <title><?php echo $title; ?></title>
 </head>
 <body>
 <div id="header">
   <div class="logo">
-    <img src="layout/png/logo.png">
+    <a href="index.php"> <img src="layout/png/logo.png"></a>
   </div>
   <div class="nav">
     <div class="top flex fd-rr">
-      <div class="login flex">
-        <div class="xbuttonx">
-          <a href="signup.php"><i class="fas fa-user-plus m-5"></i>تسجيل</a>
-        </div>
-        <div class="xbuttonx mr-5">
-          <a href="signin.php"><i class="fas fa-sign-in-alt m-5"></i>دخول</a>
-        </div>
-      </div>
+      <?php
+          if (Login::isLoggedIn())
+          {
+            $userid = Login::isLoggedIn();
+            $fname = DB::query('SELECT fname FROM users WHERE id=:id', array(':id'=>$userid))[0]['fname'];
+            print "<div class='login flex'>مرحبا , $fname</div>";
+          }
+          else
+          {
+            print" <div class='login flex'>
+                      <div class='xbuttonx'>
+                        <a href='signup.php'><i class='fas fa-user-plus m-5'></i>تسجيل</a>
+                      </div>
+                      <div class='xbuttonx mr-5'>
+                        <a href='signin.php'><i class='fas fa-sign-in-alt m-5'></i>دخول</a>
+                      </div>
+                    </div>";
+          }
+      ?>
     </div>
     <div class="center flex a-c">
       <div class="search flex w-100">
@@ -35,13 +49,15 @@
           </div>
           <menu>
             <div class="item"><b>جميع الأقسام</b></div>
-            <div class="item">جميع الأقسام</div>
-            <div class="item">جميع الأقسام</div>
-            <div class="item">جميع الأقسام</div>
+            <?php $categories = DB::query('SELECT * FROM categories');
+            foreach ($categories as $cat) {
+              ?>
+              <div class="item"><?php echo $cat['category']; ?></div>
+              <?php
+            }
+             ?>
           </menu>
         </div>
-
-
         <form action="search" class="flex f-1" method="get">
           <input type="text" class="input" name="q" placeholder="ماذا تبحث عن؟">
           <button type="submit"> <i class="fas fa-search"></i> </button>
@@ -51,21 +67,24 @@
     <div class="bottom flex nav-buttons j-c">
 
       <?php
-      $items = ["بقالة", "طعام طازج","الهواتف المحمولة والأدوات","الكترونيات","المعيشة المنزلية","الملابس"];
-
-      foreach ($items as $item) {
+      $categories = DB::query('SELECT * FROM categories');
+      foreach ($categories as $cat) {
         ?>
-        <div class="item"><?php echo $item; ?></div>
+        <div class="item"><?php echo $cat['category']; ?></div>
         <?php
-      } ?>
-
+      }
+       ?>
+      <?php
+       ?>
       <div class="sub-menu">
-        <?php for ($i=0; $i <7 ; $i++) {
+        <?php foreach ($categories as $cat) {
+          $menus = DB::query('SELECT * FROM branchone WHERE category = :category',array(':category'=>$cat['id']));
           ?>
           <div class="content">
-            <?php for($k = 0; $k<rand(1,10); $k++){
+            <?php foreach($menus as $menu){
               ?>
               <div class="menu">
+                <div class="item"><a href="#"><?php echo $menu['branchOne']; ?></a></div>
                 <?php
               for ($j=0; $j <rand(1,10) ; $j++) {
                 ?>
