@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/b1361fb5d5.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="layout/js/all.js"></script>
-
   <link rel="stylesheet" href="./layout/css/master.css">
   <title><?php echo $title; ?></title>
 </head>
