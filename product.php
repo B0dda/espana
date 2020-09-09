@@ -10,29 +10,49 @@ if(isset($_GET['id']))
       die('PRODUCT NOT FOUND!');
     }
     $product_info = $product_info[0];
+
+    
 }
 else
 {
     die('PRODUCT NOT FOUND!');
 }
 
+if(isset($_POST['addcart']))
+{
+    $quantity = $_POST['quantity'];
+    $date = date('Y-m-d H:i:s');
+    $userid = Login::isLoggedIn();
+    $product_id = $_GET['id'];
+
+    DB::query('INSERT INTO cart VALUES (\'\', :product_id, :quantity, :user_id, :date)', array(':product_id'=>$product_id, ':quantity'=>$quantity,':user_id'=>$userid,':date'=>$date));
+    echo '<script>window.location="cart.php"</script>';
+}
+
 ?>
-    <div class="wrapper">
+    <div class="wrapper"> 
         <div class="container">
             <div class="full-product" >
                 <div class="product-images" style="position:relative; overflow:hidden;height:500px;">
                   <div class="slider">
+                    <?php
+                    $product_images = DB::query('SELECT * FROM products_image WHERE product_id=:id',array(':id'=>$_GET['id']));
+                    foreach ($product_images as $image)
+                    {
+                    ?>
                     <div class="main-img slide">
-                        <img src="layout/jpeg/1715195-01.jfif">
+                        <img src="control/uploads/<?php echo $image["image"]; ?>">
                     </div>
-                    <div class="main-img slide">
-                        <img src="layout/jpeg/1715195-01.jfif">
-                    </div>
+                    <?php }?>
                   </div>
 
                     <div class="sec-img" style="position:absolute;bottom:0;">
-                        <img src="layout/jpeg/1715195-01.jfif" >
-                        <img src="layout/jpeg/1715195-01.jfif" >
+                    <?php
+                    foreach ($product_images as $image)
+                    {
+                    ?>
+                        <img src="control/uploads/<?php echo $image["image"]; ?>">
+                        <?php }?>
                     </div>
                     <div class="slide-button left">
                       <i class="fas fa-arrow-left"></i>
@@ -45,9 +65,9 @@ else
                     <h1><?php echo $product_info['name']; ?></h1>
                     <p class="pro-price mb-10">ر س <?php echo $product_info['price']; ?></p>
                     <?php
-                    if($product_info['name'] == 1) {
+                    if($product_info['isAvailable'] == 1) {
                         print "<p class='availability mb-10'>متوفر</p>";
-                    } else if ($product_info['name'] == 0) {
+                    } else if ($product_info['isAvailable'] == 0) {
                         print "<p class='availability mb-10'style='color:red;'>الكمية نفذت</p>";
                     }
 
@@ -73,11 +93,12 @@ else
                     </ul>
                     <hr class="mb-30">
                     <div class="item-counter mb-10">
+                    <form action="product.php?id=<?php echo $product_info['id'] ?>" method="POST">
                         <button><i class="fas fa-plus"></i></button>
-                        <input type="number" class="counter-input" value="1">
+                        <input type="number" name="quantity" class="counter-input" value="1">
                         <button><i class="fas fa-minus"></i></button>
                     </div>
-                    <a href="cart.php"><input type="button" class="addpr mb-30" name="" id="" value="اضف للسلة"></a>
+                    <a href="cart.php"><input type="submit" class="addpr mb-30" name="addcart" id="addcart" value="اضف للسلة"></form></a>
                     <div class="extra-desc">
                         <button id="btnn1" onclick="showDesc()">الوصف و المميزات</button>
                         <button id="btnn2" onclick="showPrice()">الدفع و التوصيل</button>

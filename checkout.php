@@ -1,5 +1,58 @@
-<?php $title = "تسجيل الدخول" ?>
-<?php include('includes/header.php'); ?>
+<?php $title = "إنهاء العملية" ?>
+<?php 
+include('includes/header.php');
+
+$cart_info = DB::query('SELECT * FROM cart WHERE user_id=:user_id',array(':user_id'=>$userid));
+
+$sum_amount = $_GET['sum'];
+
+if ( isset( $_POST['confirm'] ) )
+{
+    $title = $_POST['title'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $address1 = $_POST['address1'];
+    $address2 = $_POST['address2'];
+    $country = $_POST['country'];
+    $gov = $_POST['gov'];
+    $countryCode = $_POST['countryCode'];
+    $phone = $_POST['phone'];
+
+        DB::query('INSERT INTO address VALUES(\'\',:title,:fname,:lname,:address1,:address2,:country,:government,:country_code,:phone_number)',
+        array(':title'=>$title,
+            ':fname'=>$fname,
+            ':lname'=>$lname,
+            ':address1'=>$address1,
+            ':address2'=>$address2,
+            ':country'=>$country,
+            ':government'=>$gov,
+            ':country_code'=>$countryCode,
+            ':phone_number'=>$phone));
+
+            $date = date('Y-m-d H:i:s');
+            $address_id = DB::query('SELECT id FROM address ORDER BY id DESC LIMIT 1')[0]['id'];
+            DB::query('INSERT INTO orders VALUES(\'\',:amount,1,:user_id,:address_id,:date)',
+            array(':amount'=>$sum_amount,
+                ':user_id'=>$userid,
+                ':address_id'=>$address_id,
+                ':date'=>$date));
+
+                $order_id = DB::query('SELECT id FROM orders ORDER BY id DESC LIMIT 1')[0]['id'];
+                foreach ($cart_info as $ci) 
+                {
+                    $product_price = DB::query('SELECT price FROM products WHERE id=:id',array(':id'=>$ci["product_id"]))[0]['price'];
+                    DB::query('INSERT INTO order_items VALUES(\'\',:product_id,:price,:quantity,:order_id)',
+                    array(':product_id'=>$ci["product_id"],
+                        ':price'=>$product_price,
+                        ':quantity'=>$ci["quantity"],
+                        ':order_id'=>$order_id));
+                }
+
+                DB::query('DELETE FROM cart WHERE user_id=:user_id',array(':user_id'=>$userid));
+                echo '<script>alert("Order Placed")</script>';  
+                echo '<script>window.location="index.php"</script>';  
+}
+?>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <title>إنهاء الشراء | اسبانا</title>
 </head>
@@ -12,7 +65,7 @@
                     <h2 class="mb-10">التفاصيل</h2>
                     <div class="two-in-one">
                         <p class="flex-1">السعر</p>
-                        <p class="flex-1 tl-l info-element">52.00 رس</p>
+                        <p class="flex-1 tl-l info-element"><?php echo $sum_amount;?> رس</p>
                     </div>
                     <div class="two-in-one mb-10">
                         <p class="flex-1">التوصيل</p>
@@ -21,49 +74,50 @@
                     <hr class="mb-30">
                     <div class="two-in-one">
                         <p class="flex-1">إجمالي السعر</p>
-                        <p class="flex-1 tl-l info-element">62.00 رس</p>
+                        <p class="flex-1 tl-l info-element"><?php echo $sum_amount + 10;?> رس</p>
                     </div>
-                </div>
+                </div> 
             </div>
             <div class="delivery-details">
+            <form action="checkout.php?sum=<?php echo $sum_amount;?>" method="POST">
                 <div class="indelivery-details">
                     <h1 class="mb-10">تفاصيل الشحن</h1>
                     <h2 class="mb-30">عنوان الشحن</h2>
                     <div class="group-input flex-1">
-                        <input type="text" class="bda-input" required>
+                        <input type="text" name="title" class="bda-input" required>
                         <span class="highlight"></span><span class="bar"></span>
                         <label> <i class="fas fa-address-card"></i> إسم العنوان (منزل او شركة او ..) </label>
                     </div>
                     <div class="two-in-one">
                         <div class="group-input flex-1">
-                          <input type="text" class="bda-input" required>
+                          <input type="text" name="fname" class="bda-input" required>
                           <span class="highlight"></span><span class="bar"></span>
                           <label> <i class="fas fa-signature"></i> الإسم الأول </label>
                         </div>
                         <div class="group-input flex-1">
-                          <input type="text" class="bda-input" required>
+                          <input type="text" name="lname" class="bda-input" required>
                           <span class="highlight"></span><span class="bar"></span>
                           <label> <i class="fas fa-signature"></i> الإسم الأخير</label>
                         </div>
                     </div>
                     <div class="group-input flex-1">
-                        <input type="text" class="bda-input" required>
+                        <input type="text" name="address1" class="bda-input" required>
                         <span class="highlight"></span><span class="bar"></span>
                         <label> <i class="fas fa-map-marker-alt"></i> العنوان بالتفصيل 1 </label>
                     </div>
                     <div class="group-input flex-1">
-                        <input type="text" class="bda-input" required>
+                        <input type="text" name="address2" class="bda-input" required>
                         <span class="highlight"></span><span class="bar"></span>
                         <label> <i class="fas fa-map-marker-alt"></i> العنوان بالتفصيل 2 </label>
                     </div>
                     <div class="two-in-one">
                         <div class="group-input flex-1">
-                          <input type="text" class="bda-input" required>
+                          <input type="text" name="country" class="bda-input" required>
                           <span class="highlight"></span><span class="bar"></span>
                           <label> <i class="fas fa-globe-europe"></i> البلد </label>
                         </div>
                         <div class="group-input flex-1">
-                          <input type="text" class="bda-input" required>
+                          <input type="text" name="gov" class="bda-input" required>
                           <span class="highlight"></span><span class="bar"></span>
                           <label> <i class="fas fa-city"></i> المحافظة </label>
                         </div>
@@ -292,7 +346,7 @@
                           <label> <i class="fas fa-flag"></i> كود البلد </label>
                         </div>
                         <div class="group-input flex-2">
-                          <input type="text" class="bda-input" required>
+                          <input type="text" name="phone" class="bda-input" required>
                           <span class="highlight"></span><span class="bar"></span>
                           <label> <i class="fas fa-phone"></i> رقم الهاتف</label>
                         </div>
@@ -304,21 +358,21 @@
                             <p class="payment-m"> <input type="radio" class="bda-inputt" name="payment" onclick="hide()" required> الدفع عند الاستلام  <i class="fas fa-money-bill-wave"></i> </p> 
                           <span class="highlight"></span><span class="bar"></span>
                         </div>
-                        <div class="group-input flex-1">
+                        <!-- <div class="group-input flex-1">
                           <p class="payment-m"><input type="radio" class="bda-inputt" name="payment" onclick="show()" required> Visa / Mastercard <i class="far fa-credit-card"></i> </p>
                           <span class="highlight"></span><span class="bar"></span>
-                        </div>
+                        </div> -->
                     </div>
 
 
-                    <div class="group-input" id="cardno">
+                    <!-- <div class="group-input" id="cardno">
                         <input class="bda-input" type="text" name="cardno"  maxlength="16" size="16" oninput="checkCard()" required/>
                         <span class="highlight"></span><span class="bar"></span>
                         <label> <i id="i1" class="far fa-credit-card"></i> رقم البطاقة</label>
-                    </div>
+                    </div> -->
 
                         
-                        <div class="two-in-one" id="cardmon">
+                        <!-- <div class="two-in-one" id="cardmon">
                             <div class="group-input flex-1">
                                 <select class="bda-input c-select"  name="DOBMonth">
                                 <option></option>
@@ -355,17 +409,17 @@
                                 <span class="highlight"></span><span class="bar"></span>
                                 <label> سنة الإنتهاء</label>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="group-input flex-1" id="cvv">
+                        <!-- <div class="group-input flex-1" id="cvv">
                             <input class="bda-input" type="text" name="cvv"  maxlength="3" size="3" required/>
                             <span class="highlight"></span><span class="bar"></span>
                             <label> <i class="fas fa-lock icon"></i> CVV</label>
-                        </div>
+                        </div> -->
                         <div class="group-buttons flex-1 mb-10">
-                            <input type="submit" class="xbutton p" name="confirm" id="submit-new" value="  إتمام العملية" onClick="(function(){window.location='index.php';return false;})();return false;">
+                            <input type="submit" class="xbutton p" name="confirm" id="submit-new" value="  إتمام العملية">
                         </div>
-                    <script>
+                    <!-- <script>
                         function checkCard() 
                         {
                             var card = document.getElementById('cardno').value;
@@ -389,10 +443,10 @@
                                 document.getElementById("i1").classList.add('fa-credit-card');
                             }
                         }
-                    </script>
+                    </script> -->
                     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
                     <script src="layout/js/validations.js"></script>
-                    <script>
+                    <!-- <script>
                         function show()
                         {
                             $("#cardno").show('slow');
@@ -408,8 +462,9 @@
                             $("#cardyear").hide('slow');
                             $("#cvv").hide('slow');
                         }
-                    </script>
+                    </script> -->
                 </div>
+            </form>
             </div>
         </div>
     </div>

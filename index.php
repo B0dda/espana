@@ -2,12 +2,12 @@
 <div class="top-slider">
 <div class="slider" data-timer="5000">
   <?php
-$slider = [1, 2, 3, 4, 5];
+$slider = DB::query('SELECT * FROM slider WHERE isActivated=1');
 foreach ($slider as $slide)
 {
 ?>
       <div class="slide">
-        <img src="uploads/slider_test/<?php echo $slide; ?>.jpg">
+        <img src="control/uploads/<?php echo $slide['image']; ?>"> 
       </div>
       <?php
 }
@@ -34,7 +34,10 @@ foreach ($products as $product)
 ?>
   <div class="card">
     <div class="product-image">
-      <a href="product.php?id=<?php echo $product['id'] ?>"><img src="layout/jpeg/1715195-01.jfif"></a>
+      <?php
+      $image = DB::query('SELECT image FROM products_image WHERE product_id=:product_id',array(':product_id'=>$product['id']))[0]['image'];
+      ?>
+      <a href="product.php?id=<?php echo $product['id'] ?>"><img src="control/uploads/<?php echo $image; ?>"></a>
     </div>
     <div class="title">
       <?php echo $product['name'] ?>

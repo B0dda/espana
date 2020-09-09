@@ -1219,6 +1219,12 @@ hr {
   opacity: 1;
 }
 
+.trans-btn {
+  border: none;
+  background: none;
+  outline: none;
+}
+
 @media only screen and (max-width: 768px) {
   .signin-form-container {
     width: 90%;
