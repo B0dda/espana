@@ -1,12 +1,12 @@
 <?php $title = "إنهاء العملية" ?>
-<?php 
+<?php
 include('includes/header.php');
 
-if (Login::isLoggedIn()) 
+if (Login::isLoggedIn())
 {
     $userid = Login::isLoggedIn();
-} 
-else 
+}
+else
 {
     die('Page Not Found!');
 }
@@ -47,7 +47,7 @@ if ( isset( $_POST['confirm'] ) )
                 ':date'=>$date));
 
                 $order_id = DB::query('SELECT id FROM orders ORDER BY id DESC LIMIT 1')[0]['id'];
-                foreach ($cart_info as $ci) 
+                foreach ($cart_info as $ci)
                 {
                     $product_price = DB::query('SELECT price FROM products WHERE id=:id',array(':id'=>$ci["product_id"]))[0]['price'];
                     DB::query('INSERT INTO order_items VALUES(\'\',:product_id,:price,:quantity,:order_id)',
@@ -58,14 +58,10 @@ if ( isset( $_POST['confirm'] ) )
                 }
 
                 DB::query('DELETE FROM cart WHERE user_id=:user_id',array(':user_id'=>$userid));
-                echo '<script>alert("Order Placed")</script>';  
-                echo '<script>window.location="index.php"</script>';  
+                echo '<script>alert("Order Placed")</script>';
+                echo '<script>window.location="index.php"</script>';
 }
 ?>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <title>إنهاء الشراء | اسبانا</title>
-</head>
-<body>
     <div class="wrapper" id="checkout">
         <div class="checkout-container">
             <div class="order-details">
@@ -85,7 +81,7 @@ if ( isset( $_POST['confirm'] ) )
                         <p class="flex-1">إجمالي السعر</p>
                         <p class="flex-1 tl-l info-element"><?php echo $sum_amount + 10;?> رس</p>
                     </div>
-                </div> 
+                </div>
             </div>
             <div class="delivery-details">
             <form action="checkout.php?sum=<?php echo $sum_amount;?>" method="POST">
@@ -364,7 +360,7 @@ if ( isset( $_POST['confirm'] ) )
                     <h2 class="mb-30">تفاصيل الدفع</h2>
                     <div class="two-in-one">
                         <div class="group-input flex-1">
-                            <p class="payment-m"> <input type="radio" class="bda-inputt" name="payment" onclick="hide()" required> الدفع عند الاستلام  <i class="fas fa-money-bill-wave"></i> </p> 
+                            <p class="payment-m"> <input type="radio" class="bda-inputt" name="payment" onclick="hide()" required> الدفع عند الاستلام  <i class="fas fa-money-bill-wave"></i> </p>
                           <span class="highlight"></span><span class="bar"></span>
                         </div>
                         <!-- <div class="group-input flex-1">
@@ -380,7 +376,7 @@ if ( isset( $_POST['confirm'] ) )
                         <label> <i id="i1" class="far fa-credit-card"></i> رقم البطاقة</label>
                     </div> -->
 
-                        
+
                         <!-- <div class="two-in-one" id="cardmon">
                             <div class="group-input flex-1">
                                 <select class="bda-input c-select"  name="DOBMonth">
@@ -429,7 +425,7 @@ if ( isset( $_POST['confirm'] ) )
                             <input type="submit" class="xbutton p" name="confirm" id="submit-new" value="  إتمام العملية">
                         </div>
                     <!-- <script>
-                        function checkCard() 
+                        function checkCard()
                         {
                             var card = document.getElementById('cardno').value;
                             if(card.charAt(0) == '4')

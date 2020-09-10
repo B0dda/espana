@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/b1361fb5d5.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="layout/js/all.js"></script>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="./layout/css/master.css">
   <title><?php echo $title; ?></title>
 </head>
@@ -30,7 +32,7 @@
                       </div></div>
             ";
           }
-          else 
+          else
           {
             print" <div class='login flex'>
                       <div class='xbuttonx'>
@@ -44,24 +46,37 @@
       ?>
     </div>
     <div class="center flex a-c">
-      <div class="search flex w-100"> 
-        <div class="cat-button">
+      <div class="search flex w-100">
+        <div class="cat-button" style="text-align:center;">
+          <?php
+          if(isset($_GET['category'])){
+            $cat = DB::query('SELECT * FROM categories WHERE id=:id',array(':id'=>$_GET['category']));
+            if($cat){
+              echo $cat[0]['category'];
+            }
+          }else{
+              ?>
           جميع الأقسام
+          <?php
+      }
+       ?>
           <div class="icon">
             <i class="fas fa-caret-down"></i>
           </div>
           <menu>
-            <div class="item"><b>جميع الأقسام</b></div>
+
+                <div class="item"><b>جميع الأقسام</b></div>
+
             <?php $categories = DB::query('SELECT * FROM categories');
             foreach ($categories as $cat) {
               ?>
-              <div class="item"><?php echo $cat['category']; ?></div>
+              <a href="search.php?category=<?php echo $cat['id']; ?>"><div class="item"><?php echo $cat['category']; ?></div></a>
               <?php
             }
              ?>
           </menu>
         </div>
-        <form action="search" class="flex f-1" method="get">
+        <form action="search.php" class="flex f-1" method="get">
           <input type="text" class="input" name="q" placeholder="ماذا تبحث عن؟">
           <button type="submit"> <i class="fas fa-search"></i> </button>
         </form>
