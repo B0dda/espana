@@ -35,7 +35,7 @@
               <li class="nav-item">
                 <a href="./chartjs.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>ChartJS</p>
+                  <p>Statistics</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -44,29 +44,17 @@
                   <p>Flot</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href=".inline.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inline</p>
-                </a>
-              </li>
             </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Forms
+                Mange Website
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./general.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>General Elements</p>
-                </a>
-              </li>
               <li class="nav-item">
                 <a href="./addproduct.php" class="nav-link">
                   <i class="fa fa-plus nav-icon"></i>
@@ -83,6 +71,12 @@
                 <a href="./view-orders.php" class="nav-link">
                   <i class="nav-icon far fa-eye"></i>
                   <p>View Orders</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./view-users.php" class="nav-link">
+                  <i class="nav-icon far fa-user"></i>
+                  <p>View Users</p>
                 </a>
               </li>
             </ul>

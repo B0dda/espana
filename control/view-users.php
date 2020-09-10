@@ -11,7 +11,7 @@ if (!Login::isLoggedIn())
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Espana | View Orders</title>
+  <title>Espana | View Users</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -72,12 +72,12 @@ if (!Login::isLoggedIn())
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>View Orders</h1>
+            <h1>View Users</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">View Orders</li>
+              <li class="breadcrumb-item active">View Users</li>
             </ol>
           </div>
         </div>
@@ -94,7 +94,7 @@ if (!Login::isLoggedIn())
               <div class="card-body">
               <div class="card">
                 <div class="card-header border-transparent">
-                    <h3 class="card-title">All Orders</h3>
+                    <h3 class="card-title">All Users</h3>
                 </div>
               <!-- /.card-header -->
                 <div class="card-body p-0">
@@ -102,37 +102,25 @@ if (!Login::isLoggedIn())
                     <table class="table m-0">
                         <thead>
                         <tr>
-                        <th>Order ID</th>
-                        <th>Amount(رس)</th>
-                        <th>Status</th>
-                        <th>Date & Time</th>
-                        <th>Invoice</th>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php 
-                        $orders_info = DB::query('SELECT * FROM orders ');
-                        foreach ($orders_info as $oi) {
+                        $user_info = DB::query('SELECT * FROM users');
+                        foreach ($user_info as $ui) {
 
                         ?>
                         <tr>
-                        <td><a href="invoice.php?order=<?php echo $oi["id"];?>"><?php echo $oi["id"];?></a></td>
-                        <td><?php echo $oi["amount"];?> رس</td>
-                        <?php
-                          if($oi["status"] == 1) {
-                            print "<td><span class='badge badge-warning'>Pending</span></td>";
-                          } elseif ($oi["status"] == 2) {
-                            print "<td><span class='badge badge-info'>Processing</span></td>";
-                          } elseif ($oi["status"] == 3) {
-                            print "<td><span class='badge badge-success'>Shipped</span></td>";
-                          } elseif ($oi["status"] == 4) {
-                            print "<td><span class='badge badge-danger'>Delivered</span></td>";
-                          }
-                        ?>
-                        <td>
-                            <div class="sparkbar" data-color="#00a65a" data-height="20"><?php echo $oi["date"];?></div>
-                        </td>
-                        <td><a href="invoice.php?order=<?php echo $oi["id"];?>">Click To View</a></td>
+                        <td><?php echo $ui["id"];?></td>
+                        <td><?php echo $ui["fname"];?></td>
+                        <td><?php echo $ui["lname"];?></td>
+                        <td><?php echo $ui["email"];?></td>
+                        <td><?php echo $ui["phone"];?></td>
                         </tr>
                         <?php }?>
                         </tbody>
@@ -142,7 +130,7 @@ if (!Login::isLoggedIn())
                 </div>
               <!-- /.card-body -->
                 <div class="card-footer clearfix">
-                    <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+                    <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Users</a>
                 </div>
               <!-- /.card-footer -->
             </div>
