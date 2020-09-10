@@ -51,7 +51,10 @@ include('includes/header.php');
         <span class="highlight"></span><span class="bar"></span>
         <label> <i class="fas fa-lock"></i> كلمة المرور </label>
       </div>
-
+      
+      <div class="group-input">
+      <a href="forgot-password.php" style="text-align:right;"><p>هل نسيت كلمة المرور ؟</p></a>
+      </div>
       <div class="group-buttons flex-1 mb-10">
         <input type="submit" class="xbutton p" name="signin" value="تسجيل الدخول">
       </div>

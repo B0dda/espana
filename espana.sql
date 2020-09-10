@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2020 at 09:04 PM
+-- Generation Time: Sep 10, 2020 at 08:17 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `espana`
 --
+CREATE DATABASE IF NOT EXISTS `espana` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `espana`;
 
 -- --------------------------------------------------------
 
@@ -46,7 +48,8 @@ CREATE TABLE `address` (
 
 INSERT INTO `address` (`id`, `title`, `fname`, `lname`, `address1`, `address2`, `country`, `government`, `country_code`, `phone_number`) VALUES
 (1, 'موقع كامل لبطولة لعبة فالورنت مع لوحة تحكم', 'Abdelrahman', 'sayed', 'hamouda', 'hamouda', 'Egypt', 'Cairo', '20', '115899135'),
-(2, 'موقع كامل لبطولة لعبة فالورنت مع لوحة تحكم', 'Abdelrahman', 'sayed', 'hamouda', 'hamouda', 'Egypt', 'Cairo', '20', '115899135');
+(2, 'موقع كامل لبطولة لعبة فالورنت مع لوحة تحكم', 'Abdelrahman', 'sayed', 'hamouda', 'hamouda', 'Egypt', 'Cairo', '20', '115899135'),
+(3, 'Home', 'Mohamed', 'Ashraf', 'Maadi', 'Road 4', 'Egypt', 'Cairo', '20', '0123456789');
 
 -- --------------------------------------------------------
 
@@ -89,7 +92,8 @@ CREATE TABLE `admin_tokens` (
 INSERT INTO `admin_tokens` (`id`, `token`, `user_id`, `date`) VALUES
 (1, 'b0505320fa577563850cbf77e5692740fcfa9fdc', 1, '2020-09-07 17:08:19'),
 (2, '406a4a4b10b9c310868d8f38772339007220a927', 1, '2020-09-07 17:08:43'),
-(3, 'b9265bc485cef0b9ca521fdeeb5040c55d45b80b', 1, '2020-09-07 17:54:52');
+(4, '851c520b5d3c66e370a5e4e7eb2a791cc7a4ecd1', 1, '2020-09-10 18:01:48'),
+(5, 'bc70968c3f15ce8f1255a23e365b421115f02c97', 1, '2020-09-10 18:02:03');
 
 -- --------------------------------------------------------
 
@@ -155,6 +159,15 @@ CREATE TABLE `cart` (
   `user_id` int(11) NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `product_id`, `quantity`, `user_id`, `date`) VALUES
+(9, 3, 3, 1, '2020-09-09 23:37:16'),
+(10, 1, 1, 1, '2020-09-09 23:41:32'),
+(11, 1, 1, 1, '2020-09-09 23:52:11');
 
 -- --------------------------------------------------------
 
@@ -226,34 +239,10 @@ CREATE TABLE `login_tokens` (
 --
 
 INSERT INTO `login_tokens` (`id`, `token`, `user_id`, `date`) VALUES
-(1, '73fa2880fa32ef6ff483b3b3b9545e60cb5ddbde', 1, '2020-08-30 17:48:12'),
-(2, '3808a5445b4672fcb11ce14b41adc81494a10211', 1, '2020-08-30 20:55:49'),
-(3, '2f1c49099a1d9b9dbdb53969098cf4a14193cc33', 1, '2020-08-30 20:58:18'),
-(4, 'da023a554613038fa5bb8e4a4891f5f1d9ef01cb', 1, '2020-08-30 20:59:46'),
-(5, 'de8f5857ec8c9014bea46e9cc931671dc7445c3e', 1, '2020-08-30 21:01:18'),
-(6, '8645671a0a557d71c6d82ce958efcad20751a665', 1, '2020-08-30 21:04:10'),
-(7, 'b58ccc616d0cdcb0b2ecf08bef25d258f05891ea', 1, '2020-08-30 21:04:55'),
-(8, '664be162d633567794f9992cb4bcb17bf3685588', 1, '2020-08-30 21:05:29'),
-(9, '4bf2800b47df58086ab4818273050d49acf52ec4', 1, '2020-08-30 21:06:51'),
-(10, '6f9764a26e7fcd9cb9de6d1fb814acdc7b0f61f4', 1, '2020-08-30 21:23:59'),
-(11, 'b014ecaa4a7fb90c884abe211b6eec23ab60b431', 1, '2020-08-30 21:24:47'),
-(12, 'cc034766577c531554a8d24cb306de87805b1175', 1, '2020-08-30 21:27:06'),
 (13, 'ce8ea7ad151eda7290c36ce93b2ce3761c245f10', 2, '2020-08-30 21:30:14'),
-(14, 'a3e630151a03b0da74a7b4ea356933b9442474fb', 1, '2020-08-30 21:33:04'),
 (15, 'bcd6f52c49bfb0423f7edee53c2de21e6ec84113', 2, '2020-08-30 21:34:56'),
-(16, 'c007d560f8830e46da348f7d2adcc82030ecc38b', 1, '2020-08-30 21:36:59'),
-(17, 'fd2103e3125729526689742460857761f43d4527', 1, '2020-08-30 21:37:50'),
 (18, 'a145bddc903056c393d53499f73c419490a2b92c', 2, '2020-08-30 21:40:57'),
-(19, '96ecffa271e6f458ef034e4445c21ee5585c02ff', 1, '2020-08-30 21:42:20'),
-(20, '0b8302c2defb58ca193d80ba70308da299bc6eb5', 1, '2020-08-30 21:48:02'),
-(21, '1b9bdfbe2bb76058d3a960b820d5e190970a6808', 1, '2020-08-30 21:49:07'),
-(22, 'ff5edfabc93f814bc1a276328b4b0eb604f1d084', 1, '2020-08-30 21:51:17'),
-(23, '1f90c78da4a81144004af34a30773e13fc2cab9f', 1, '2020-08-30 21:52:55'),
-(24, 'cf39128f111dc62648dd315eede39170c0f06b55', 1, '2020-08-30 21:56:51'),
-(25, '023d98744aed83a7c87578ac987b0003079b64af', 1, '2020-08-30 21:57:56'),
-(26, '7f6416cbe9c81efb62fb99e50f6dd65d93369e73', 1, '2020-08-30 22:02:39'),
-(27, 'f3f2e82f6a49e15921ac1b960d018c19e6c1674a', 1, '2020-08-30 22:03:36'),
-(28, '6f2ba8d8805648fb2aadb41bedf28afbdcd1d4eb', 1, '2020-09-09 13:59:23');
+(29, '93adb470f11b2bc6c079ddc58c4c8174f7b7f848', 3, '2020-09-10 20:12:48');
 
 -- --------------------------------------------------------
 
@@ -276,7 +265,8 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`id`, `amount`, `status`, `user_id`, `address_id`, `date`) VALUES
 (1, '14948', 1, 1, 1, '2020-09-09 17:00:00'),
-(2, '14948', 3, 1, 2, '2020-09-09 17:01:28');
+(2, '14948', 3, 1, 2, '2020-09-09 17:01:28'),
+(3, '43996', 1, 3, 3, '2020-09-10 20:13:40');
 
 -- --------------------------------------------------------
 
@@ -300,7 +290,8 @@ INSERT INTO `order_items` (`id`, `product_id`, `price`, `quantity`, `order_id`) 
 (1, 1, '10999', 2, 1),
 (2, 2, '3949', 1, 1),
 (3, 1, '10999', 1, 2),
-(4, 2, '3949', 1, 2);
+(4, 2, '3949', 1, 2),
+(5, 1, '10999', 4, 3);
 
 -- --------------------------------------------------------
 
@@ -322,6 +313,30 @@ INSERT INTO `order_status` (`id`, `status`) VALUES
 (2, 'Processing'),
 (3, 'Shipped'),
 (4, 'Delivered');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_a_tokens`
+--
+
+CREATE TABLE `password_a_tokens` (
+  `id` int(11) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_u_tokens`
+--
+
+CREATE TABLE `password_u_tokens` (
+  `id` int(11) NOT NULL,
+  `token` int(255) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -420,7 +435,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `fname`, `lname`, `email`, `phone`, `password`) VALUES
 (1, 'Abdelrahman', 'sayed', 'abdelrahman3aysh@hotmail.com', '01158999135', '$2y$10$tTQ8UKFrJRC8BbdFF2Kc2ucVNaq68CKYr1Dc.R68aw0G8iIv6ctPW'),
-(2, 'Abdelrahman', 'sayed', 'squvacreativeagency@gmail.com', '01158999', '$2y$10$sGFfw6Xw3uRkRspVuEGIK.C8yAe.aKb0tpCFhf3NIwf3e8WqUPIPi');
+(2, 'Abdelrahman', 'sayed', 'squvacreativeagency@gmail.com', '01158999', '$2y$10$sGFfw6Xw3uRkRspVuEGIK.C8yAe.aKb0tpCFhf3NIwf3e8WqUPIPi'),
+(3, 'Mohamed', 'Ashraf', 'xTrimy@gmail.com', '0123456789', '$2y$10$.OYnnczrqszkpPRDpGLZeevDPcvaZUtimumRuZDXtKi6iT0QcomRy');
 
 --
 -- Indexes for dumped tables
@@ -508,6 +524,18 @@ ALTER TABLE `order_status`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `password_a_tokens`
+--
+ALTER TABLE `password_a_tokens`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `password_u_tokens`
+--
+ALTER TABLE `password_u_tokens`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -543,7 +571,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `admins`
@@ -555,7 +583,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `admin_tokens`
 --
 ALTER TABLE `admin_tokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `branchone`
@@ -573,7 +601,7 @@ ALTER TABLE `branchtwo`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -591,25 +619,37 @@ ALTER TABLE `features`
 -- AUTO_INCREMENT for table `login_tokens`
 --
 ALTER TABLE `login_tokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `order_status`
 --
 ALTER TABLE `order_status`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `password_a_tokens`
+--
+ALTER TABLE `password_a_tokens`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `password_u_tokens`
+--
+ALTER TABLE `password_u_tokens`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -633,7 +673,7 @@ ALTER TABLE `slider`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

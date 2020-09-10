@@ -94,44 +94,54 @@ if(isset($_POST['addcart']))
                     <hr class="mb-30">
                     <div class="item-counter mb-10">
                     <form action="product.php?id=<?php echo $product_info['id'] ?>" method="POST">
-                        <button><i class="fas fa-plus"></i></button>
-                        <input type="number" name="quantity" class="counter-input" value="1">
-                        <button><i class="fas fa-minus"></i></button>
+                        <button id="add" onclick="inc()" type="button"><i class="fas fa-plus"></i></button>
+                        <input type="number" name="quantity" id="quantity" class="counter-input" value="1">
+                        <button id="remove" onclick="dec()" type="button"><i class="fas fa-minus"></i></button>
                     </div>
-                    <a href="cart.php"><input type="submit" class="addpr mb-30" name="addcart" id="addcart" value="اضف للسلة"></form></a>
+                    <?php
+                    if (Login::isLoggedIn()) 
+                    {
+                        print" <a href='cart.php'><input type='submit' class='addpr mb-30' name='addcart' id='addcart' value='اضف للسلة'></form></a>";
+                    } 
+                    else 
+                    {
+                        print" <a href='signin.php'><input type='button' class='addpr mb-30' name='addcart' id='addcart' value='اضف للسلة'></form></a>";
+                    }
+                    
+                    ?>
+                    
                     <div class="extra-desc">
                         <button id="btnn1" onclick="showDesc()">الوصف و المميزات</button>
                         <button id="btnn2" onclick="showPrice()">الدفع و التوصيل</button>
                         <p id="descDesc"><?php echo $product_info['description']; ?></p>
                         <p id="descPrice"></p>
                     </div>
+                    <script>
+                        function showDesc() 
+                        {
+                            var Description = "<?php echo $product_info['description']; ?>";
+                            document.getElementById("btnn1").style.color = "#6381a8";
+                            document.getElementById("btnn2").style.color = "black";
+
+                            document.getElementById("btnn1").style.borderBottom = "1.5px solid #6381a8";
+                            document.getElementById("btnn2").style.border = "none";
+
+                            document.getElementById("descDesc").innerHTML = Description;
+                            }
+
+                            function showPrice() {
+                            var Payment = "<?php echo $product_info['paymentDetails']; ?>";
+                            document.getElementById("btnn2").style.color = "#6381a8";
+                            document.getElementById("btnn1").style.color = "black";
+
+                            document.getElementById("btnn2").style.borderBottom = "1.5px solid #6381a8";
+                            document.getElementById("btnn1").style.border = "none";
+
+                            document.getElementById("descDesc").innerHTML = Payment;
+                        }
+                    </script>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        function showDesc()
-        {
-            var Description = "<?php echo $product_info['description']; ?>";
-            document.getElementById("btnn1").style.color = "#6381a8";
-            document.getElementById("btnn2").style.color = "black";
-
-            document.getElementById("btnn1").style.borderBottom = "1.5px solid #6381a8";
-            document.getElementById("btnn2").style.border = "none";
-
-            document.getElementById("descDesc").innerHTML = Description;
-        }
-
-        function showPrice()
-        {
-            var Payment = "<?php echo $product_info['paymentDetails']; ?>";
-            document.getElementById("btnn2").style.color = "#6381a8";
-            document.getElementById("btnn1").style.color = "black";
-
-            document.getElementById("btnn2").style.borderBottom = "1.5px solid #6381a8";
-            document.getElementById("btnn1").style.border = "none";
-
-            document.getElementById("descDesc").innerHTML = Payment;
-        }
-    </script>
 <?php include('includes/footer.php'); ?>

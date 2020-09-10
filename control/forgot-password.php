@@ -1,9 +1,30 @@
+<?php
+    include('classes/Mail.php');
+    if (isset($_POST['reset'])) 
+    {
+      $cstrong = True;
+      $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
+      $email = $_POST['email'];
+      if(DB::query('SELECT email FROM admins WHERE email=:email', array(':email'=>$email)))
+      {
+          $user_id = DB::query('SELECT id FROM admins WHERE email=:email', array(':email'=>$email))[0]['id'];
+          DB::query('INSERT INTO password_a_tokens VALUES (\'\', :token, :user_id)', array(':token'=>sha1($token), ':user_id'=>$user_id));
+          Mail::sendMail('هل نسيت كلمه السر!', "<!DOCTYPE html><html><body><a href='http://localhost/espana/control/recover-password.php?token=$token'>رابط استرجاع كلمة المرور</a></html></body>", $email);
+          echo '<script>alert(" تم ارسال رابط لتغيير كلمة المرور علي البريد اللكتروني")</script>';
+          header('location: login.php');
+      }
+      else
+      {
+          echo '<script>alert(" الايميل غير مسجل")</script>';
+      }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Forgot Password</title>
+  <title>Espana | Forgot Password</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -26,7 +47,7 @@
 
       <form action="recover-password.php" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" name="email" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -35,7 +56,7 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Request new password</button>
+            <button type="submit" name="reset" class="btn btn-primary btn-block">Request new password</button>
           </div>
           <!-- /.col -->
         </div>

@@ -1,38 +1,35 @@
 <?php
-require_once('PHPMailer/PHPMailerAutoload.php');
+require('classes/PHPMailer.php');
+require('classes/SMTP.php');
+require('classes/Exception.php');
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 class Mail {
-        public static function sendMail($subject, $body, $address) {
+        public static function sendMail($subject, $body, $address) 
+        {
+                
                 $mail = new PHPMailer();
-                $mail->CharSet = 'UTF-8';
-                $mail->Encoding = 'base64';
+            
                 $mail->isSMTP();
+                $mail->Host = "smtp.gmail.com";
                 $mail->SMTPAuth = true;
-                $mail->SMTPSecure = 'ssl';
-                $mail->Host = 'smtp.office365.com';
-                $mail->Port = '587';
+                $mail->SMTPSecure = "tls";
+                $mail->Port = "587";
+                $mail->Username = "test@gmail.com";
+                $mail->Password = "testpass";
+                $mail->Subject = "Reset Password";
+                $mail->setFrom('test@gmail.com');
                 $mail->isHTML(true);
-                $mail->Username = 'support@bgaha.com';
-                $mail->Password = 'Vevo4w1988@b';
-                $mail->SetFrom('support@bgaha.com');
-                $mail->Subject = '=?UTF-8?B?'.base64_encode($subject).'?=';
                 $mail->Body = $body;
-                $mail->AddAddress($address);
-
-
-                // $mail->SMTPDebugging = 1;
-                 $mail->SMTPOptions = array(
-                        'ssl' => array(
-                            'verify_peer' => false,
-                            'verify_peer_name' => false,
-                            'allow_self_signed' => true
-                        )
-                    );
-                    $mail->SMTPKeepAlive = true;   
-                    $mail->Mailer = “smtp”;
-                // if(!$mail->Send()){
-                //     echo "حدث خطأ أثناء إرسال البريد, الخطأ:".$mail->ErrorInfo;
-                //     exit;
-                // }
+                $mail->addAddress($address);
+                if ( $mail->send() ) {
+                  echo "Email Sent..!";
+                }else{
+                  echo "Message could not be sent. Mailer Error: "{$mail->ErrorInfo};
+                }
+                $mail->smtpClose();
                 
         }
 }

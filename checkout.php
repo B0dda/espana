@@ -2,6 +2,15 @@
 <?php 
 include('includes/header.php');
 
+if (Login::isLoggedIn()) 
+{
+    $userid = Login::isLoggedIn();
+} 
+else 
+{
+    die('Page Not Found!');
+}
+
 $cart_info = DB::query('SELECT * FROM cart WHERE user_id=:user_id',array(':user_id'=>$userid));
 
 $sum_amount = $_GET['sum'];

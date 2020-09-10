@@ -144,24 +144,21 @@ function word() {
   }
 }
 
-function showDesc() {
-  var Description = "<?php echo $product_info['description']; ?>";
-  document.getElementById("btnn1").style.color = "#6381a8";
-  document.getElementById("btnn2").style.color = "black";
 
-  document.getElementById("btnn1").style.borderBottom = "1.5px solid #6381a8";
-  document.getElementById("btnn2").style.border = "none";
 
-  document.getElementById("descDesc").innerHTML = Description;
+function inc() 
+{
+    var count = document.getElementById('quantity').value;
+    var count = count * 1;
+    count++;
+    document.getElementById("quantity").value = count;
 }
 
-function showPrice() {
-  var Payment = "<?php echo $product_info['paymentDetails']; ?>";
-  document.getElementById("btnn2").style.color = "#6381a8";
-  document.getElementById("btnn1").style.color = "black";
-
-  document.getElementById("btnn2").style.borderBottom = "1.5px solid #6381a8";
-  document.getElementById("btnn1").style.border = "none";
-
-  document.getElementById("descDesc").innerHTML = Payment;
+function dec() 
+{
+    var count = document.getElementById('quantity').value;
+    var count = count * 1;
+    count--;
+    if(count > 0)
+    document.getElementById("quantity").value = count;
 }

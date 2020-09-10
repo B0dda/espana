@@ -1,6 +1,15 @@
 <?php $title = "السلة"; ?>
 <?php 
-include('includes/header.php'); 
+include('includes/header.php');
+
+if (Login::isLoggedIn()) 
+{
+    $userid = Login::isLoggedIn();
+} 
+else 
+{
+    echo '<script>window.location="signin.php"</script>';
+}
 
 $cart_info = DB::query('SELECT * FROM cart WHERE user_id=:user_id',array(':user_id'=>$userid));
 
@@ -44,7 +53,10 @@ if(isset($_GET["action"]))
       <tr>
           <style>
           </style>
-        <td><div class="product-image"></div></td>
+          <?php
+            $image = DB::query('SELECT image FROM products_image WHERE product_id=:product_id',array(':product_id'=>$ci['product_id']))[0]['image'];
+          ?>
+        <td><div class="product-image"><img src="control/uploads/<?php echo $image; ?>" alt="product"></div></td> 
         <td><?php echo $product_name;?></td>
         <td><p style="text-align:center"><?php echo $ci["quantity"]; ?></p></td>
         <?php $total_price = $product_price * $ci["quantity"];?>

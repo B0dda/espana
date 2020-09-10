@@ -1,5 +1,11 @@
 <?php
 include('includes/head.php');
+
+if (!Login::isLoggedIn()) 
+{
+  echo '<script>window.location="404.php"</script>';
+}
+
 if ( isset( $_POST['submit'] ) )
 {
   $name = $_POST['name'];
