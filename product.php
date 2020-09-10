@@ -11,7 +11,7 @@ if(isset($_GET['id']))
     }
     $product_info = $product_info[0];
 
-    
+
 }
 else
 {
@@ -30,7 +30,7 @@ if(isset($_POST['addcart']))
 }
 
 ?>
-    <div class="wrapper"> 
+    <div class="wrapper">
         <div class="container">
             <div class="full-product" >
                 <div class="product-images" style="position:relative; overflow:hidden;height:500px;">
@@ -99,17 +99,17 @@ if(isset($_POST['addcart']))
                         <button id="remove" onclick="dec()" type="button"><i class="fas fa-minus"></i></button>
                     </div>
                     <?php
-                    if (Login::isLoggedIn()) 
+                    if (Login::isLoggedIn())
                     {
-                        print" <a href='cart.php'><input type='submit' class='addpr mb-30' name='addcart' id='addcart' value='اضف للسلة'></form></a>";
-                    } 
-                    else 
-                    {
-                        print" <a href='signin.php'><input type='button' class='addpr mb-30' name='addcart' id='addcart' value='اضف للسلة'></form></a>";
+                        print" <a href='cart.php'><input type='submit' class='addpr mb-30' name='addcart' id='addcart' value='اضف للسلة'></a>";
                     }
-                    
+                    else
+                    {
+                        print" <a href='signin.php'><input type='button' class='addpr mb-30' name='addcart' id='addcart' value='اضف للسلة'></a>";
+                    }
+
                     ?>
-                    
+                    </form>
                     <div class="extra-desc">
                         <button id="btnn1" onclick="showDesc()">الوصف و المميزات</button>
                         <button id="btnn2" onclick="showPrice()">الدفع و التوصيل</button>
@@ -117,7 +117,7 @@ if(isset($_POST['addcart']))
                         <p id="descPrice"></p>
                     </div>
                     <script>
-                        function showDesc() 
+                        function showDesc()
                         {
                             var Description = "<?php echo $product_info['description']; ?>";
                             document.getElementById("btnn1").style.color = "#6381a8";
