@@ -26,7 +26,7 @@
             $fname = DB::query('SELECT fname FROM users WHERE id=:id', array(':id'=>$userid))[0]['fname'];
             print "<div class='login flex'>مرحبا , $fname</div>";
           }
-          else 
+          else
           {
             print" <div class='login flex'>
                       <div class='xbuttonx'>
@@ -40,7 +40,7 @@
       ?>
     </div>
     <div class="center flex a-c">
-      <div class="search flex w-100"> 
+      <div class="search flex w-100">
         <div class="cat-button">
           جميع الأقسام
           <div class="icon">
@@ -57,7 +57,7 @@
              ?>
           </menu>
         </div>
-        <form action="search" class="flex f-1" method="get">
+        <form action="search.php" class="flex f-1" method="get">
           <input type="text" class="input" name="q" placeholder="ماذا تبحث عن؟">
           <button type="submit"> <i class="fas fa-search"></i> </button>
         </form>

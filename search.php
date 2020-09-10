@@ -1,32 +1,57 @@
-<?php include ('includes/header.php'); ?>
-<div class="top-slider">
-<div class="slider" data-timer="5000">
-  <?php
-$slider = DB::query('SELECT * FROM slider WHERE isActivated=1');
-foreach ($slider as $slide)
-{
-?>
-      <div class="slide">
-        <img src="control/uploads/<?php echo $slide['image']; ?>">
-      </div>
-      <?php
+<?php include ('includes/header.php');
+
+if(isset($_GET['q'])){
+  $key = $_GET['q'];
+
+}else{
+  
+  exit;
 }
-?>
-</div>
-<div class="slide-button left">
-  <i class="fas fa-arrow-left"></i>
-</div>
-<div class="slide-button right">
-  <i class="fas fa-arrow-right"></i>
-</div>
-</div>
+$cat = "%";
+if(isset($_GET['cat'])){
+  $cat = $_GET['cat'];
+
+}
+$branchOne = "%";
+if(isset($_GET['branch'])){
+  $branchOne = $_GET['branch'];
+
+}
+$branchTwo = "%";
+if(isset($_GET['subbranch'])){
+  $branchTwo = $_GET['subbranch'];
+}
+$minPrice = '0';
+if(isset($_GET['min'])){
+  $minPrice = $_GET['min'];
+}
+$maxPrice = '999999';
+if(isset($_GET['max'])){
+  $maxPrice = $_GET['max'];
+}
+$products = DB::query('SELECT * FROM products WHERE name LIKE :name
+  AND category LIKE :category
+  AND branchOne LIKE :branchOne
+  AND branchTwo LIKE :branchTwo
+  AND price >= :minPrice
+  AND price <= :maxPrice'
+  ,array(
+     ':name'=>"%".$key."%",
+     ':category'=>$cat,
+     ':branchOne'=>$branchOne,
+     ':branchTwo'=>$branchTwo,
+     ':minPrice'=>$minPrice,
+     ':maxPrice'=>$maxPrice
+   ));
+
+ ?>
+
 <div class="wrapper">
 <div class="heading">
-  آخر ما وصلنا
+  نتائج البحث
 </div>
 <div class="product-cards flex">
 <?php
-$products = DB::query('SELECT * FROM products');
 foreach ($products as $product)
 {
 ?>
