@@ -15,7 +15,7 @@
 <body>
 <div id="header">
   <div class="logo">
-    <a href="index.php"> <img src="layout/png/logo.png"></a>
+    <a href="index.php"> <img src="layout/png/Logo.png"></a>
   </div>
   <div class="nav">
     <div class="top flex fd-rr">
@@ -24,7 +24,11 @@
           {
             $userid = Login::isLoggedIn();
             $fname = DB::query('SELECT fname FROM users WHERE id=:id', array(':id'=>$userid))[0]['fname'];
-            print "<div class='login flex'>مرحبا , $fname</div>";
+            print "<div class='login flex'> مرحبا , $fname
+            <div class='xbuttonx' style='margin-right:30px'>
+                        <a href='signout.php'><i class='fas fa-user-plus m-5'></i>تسجيل الخروج</a>
+                      </div></div>
+            ";
           }
           else 
           {

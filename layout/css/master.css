@@ -115,7 +115,7 @@ body {
 .product-cards .card .product-image {
   width: 100%;
   height: 250px;
-  background: #000;
+  object-fit: cover;
 }
 
 .product-cards .card .product-image img {
@@ -166,7 +166,7 @@ body {
 }
 
 .button.add, .buttonnn.add {
-  background: #59B969;
+  background: var(--secondary-c);
 }
 
 .shopping-cart-container {
@@ -187,8 +187,13 @@ body {
 .shopping-cart-container table.t .product-image {
   width: 140px;
   height: 140px;
-  background: #000;
   margin: 20px;
+}
+
+.shopping-cart-container table.t .product-image img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
 }
 
 .shopping-cart-container table .price {
@@ -508,7 +513,7 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #6381a8;
+  background: #f5aa18;
   border-radius: 10px;
 }
 
@@ -591,7 +596,7 @@ label {
 .bda-input:focus~label, .bda-input:valid~label {
   top: -20px;
   font-size: 14px;
-  color: #6381a8;
+  color: #400062;
 }
 
 .bar {
@@ -606,7 +611,7 @@ label {
   width: 0;
   bottom: 1px;
   position: absolute;
-  background: #6381a8;
+  background: #400062;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -665,7 +670,7 @@ input:focus~.highlight {
 }
 
 from {
-  background: #6381a8;
+  background: #400062;
 }
 
 to {
@@ -675,7 +680,7 @@ to {
 
 @-moz-keyframes inputHighlighter {
   from {
-    background: #6381a8;
+    background: #400062;
   }
 
   to {
@@ -686,7 +691,7 @@ to {
 
 @keyframes inputHighlighter {
   from {
-    background: #6381a8;
+    background: #400062;
   }
 
   to {
@@ -713,13 +718,13 @@ to {
 .xbutton {
   margin: 0 auto;
   border: none;
-  background-color: #6381a8;
+  background-color: #400062;
   color: white;
   border-radius: 5px;
   cursor: pointer;
   font-family: 'Tajawal', sans-serif;
   font-weight: 600;
-  border: 2px solid #6381a8;
+  border: 2px solid #400062;
   transition: .2s all;
   padding: 0 5px;
   font-size: 17px;
@@ -727,7 +732,7 @@ to {
 
 .xbutton:hover {
   background-color: white;
-  color: #6381a8;
+  color: #400062;
   cursor: pointer;
 }
 
@@ -735,12 +740,12 @@ to {
   margin: 0 auto;
   border: none;
   background-color: white;
-  color: #6381a8;
+  color: #400062;
   border-radius: 5px;
   cursor: pointer;
   font-family: 'Tajawal', sans-serif;
   font-weight: 600;
-  border: 2px solid #6381a8;
+  border: 2px solid #400062;
   transition: .2s all;
   padding: 0 5px;
   font-size: 17px;
@@ -751,23 +756,23 @@ to {
 }
 
 .xbuttonx:hover {
-  background-color: #6381a8;
+  background-color: #400062;
   color: white;
   cursor: pointer;
   margin: 0 auto;
   border: none;
   background-color: white;
-  color: #6381a8;
+  color: #400062;
   border-radius: 5px;
   cursor: pointer;
   font-family: 'Tajawal', sans-serif;
   font-weight: 600;
-  border: 2px solid #6381a8;
+  border: 2px solid #400062;
   transition: .2s all;
 }
 
 .xbuttonx:hover {
-  background-color: #6381a8;
+  background-color: #400062;
   color: white;
   cursor: pointer;
 }
@@ -838,9 +843,6 @@ to {
   padding: 10px;
 }
 
-.product-images img {
-  /* width: 100%; */
-}
 
 .product-description {
   flex: 1;
@@ -874,7 +876,7 @@ to {
   width: 50px;
   height: 30px;
   text-align: center;
-  border: 2px solid #6381a8;
+  border: 2px solid #400062;
   border-radius: 5px;
 }
 
@@ -883,7 +885,7 @@ to {
   text-align: center;
   width: 30px;
   border: none;
-  background-color: #6381a8;
+  background-color: #400062;
   color: white;
   border-radius: 5px;
   cursor: pointer;
@@ -965,8 +967,8 @@ hr {
 }
 
 #btnn1 {
-  border-bottom: 1.5px solid #6381a8;
-  color: #6381a8;
+  border-bottom: 1.5px solid #400062;
+  color: #400062;
 }
 
 #descPrice {
@@ -1035,7 +1037,7 @@ hr {
 }
 
 .inorder-details hr {
-  background-color: #6381a8;
+  background-color: #400062;
 }
 
 .indelivery-details h1 {
@@ -1089,8 +1091,8 @@ hr {
 }
 
 #viewBtn {
-  background-color: #6381a8;
-  border: 1px solid #6381a8;
+  background-color: #400062;
+  border: 1px solid #400062;
 }
 
 .cus-btn i {
@@ -1121,7 +1123,7 @@ hr {
 #footer {
   margin-top: 30px;
   width: 100%;
-  background: #7ea4d6;
+  background: #7a01bb;
   position: relative;
 }
 
@@ -1180,7 +1182,7 @@ hr {
 }
 
 #footer .footer-end {
-  background: #6381a8;
+  background: #400062;
   padding: 45px 7%;
   color: #999;
   height: 120px;
